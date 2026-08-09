@@ -1,7 +1,3 @@
-/* =========================================================
-   VARIABLES
-========================================================= */
-
 :root {
 
     --cream: #f8f4ee;
@@ -25,10 +21,6 @@
 
 }
 
-
-/* =========================================================
-   GENERAL
-========================================================= */
 
 * {
 
@@ -66,6 +58,13 @@ body {
 }
 
 
+body.invitation-open {
+
+    overflow: hidden;
+
+}
+
+
 a {
 
     text-decoration: none;
@@ -73,14 +72,253 @@ a {
 }
 
 
-img {
+button {
 
-    max-width: 100%;
-
-    display: block;
+    font-family: inherit;
 
 }
 
+
+/* ==========================================
+   PANTALLA DE BIENVENIDA
+========================================== */
+
+.welcome-screen {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 10000;
+
+    background-image:
+        url("_MG_6280.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    color: white;
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
+
+}
+
+
+.welcome-screen.hide {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+}
+
+
+.welcome-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            rgba(35,28,23,.5),
+            rgba(35,28,23,.65)
+        );
+
+}
+
+
+.welcome-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    width:
+        min(850px,90%);
+
+    animation:
+        welcomeAppear 1.5s ease;
+
+}
+
+
+.welcome-small {
+
+    font-size:
+        .7rem;
+
+    letter-spacing:
+        5px;
+
+    margin-bottom:
+        25px;
+
+}
+
+
+.welcome-content h1 {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(4.5rem,13vw,9rem);
+
+    font-weight:
+        400;
+
+    line-height:
+        .9;
+
+}
+
+
+.welcome-content h1 em {
+
+    font-style:
+        italic;
+
+    font-weight:
+        300;
+
+}
+
+
+.welcome-line {
+
+    width:
+        80px;
+
+    height:
+        1px;
+
+    background:
+        white;
+
+    margin:
+        30px auto;
+
+}
+
+
+.welcome-date {
+
+    font-size:
+        .85rem;
+
+    letter-spacing:
+        5px;
+
+    margin-bottom:
+        40px;
+
+}
+
+
+.open-button {
+
+    border:
+        1px solid rgba(255,255,255,.8);
+
+    background:
+        rgba(255,255,255,.08);
+
+    color:
+        white;
+
+    padding:
+        16px 35px;
+
+    font-size:
+        .75rem;
+
+    letter-spacing:
+        2px;
+
+    cursor:
+        pointer;
+
+    transition:
+        .4s;
+
+}
+
+
+.open-button:hover {
+
+    background:
+        white;
+
+    color:
+        var(--brown-dark);
+
+    transform:
+        translateY(-3px);
+
+}
+
+
+.open-button span {
+
+    margin-left:
+        8px;
+
+}
+
+
+.music-hint {
+
+    margin-top:
+        25px;
+
+    font-size:
+        .7rem;
+
+    opacity:
+        .75;
+
+}
+
+
+@keyframes welcomeAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(30px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* ==========================================
+   GENERAL
+========================================== */
 
 .container {
 
@@ -170,9 +408,102 @@ h2 {
 }
 
 
-/* =========================================================
+/* ==========================================
+   MÚSICA
+========================================== */
+
+.music-button {
+
+    position:
+        fixed;
+
+    right:
+        20px;
+
+    bottom:
+        20px;
+
+    width:
+        55px;
+
+    height:
+        55px;
+
+    border-radius:
+        50%;
+
+    border:
+        none;
+
+    background:
+        var(--brown-dark);
+
+    color:
+        white;
+
+    font-size:
+        1.3rem;
+
+    cursor:
+        pointer;
+
+    z-index:
+        9999;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.25);
+
+    transition:
+        .3s;
+
+}
+
+
+.music-button:hover {
+
+    transform:
+        scale(1.1);
+
+}
+
+
+.music-button.playing {
+
+    animation:
+        musicPulse 1.5s infinite;
+
+}
+
+
+@keyframes musicPulse {
+
+    0% {
+
+        box-shadow:
+            0 0 0 0 rgba(179,154,107,.5);
+
+    }
+
+    70% {
+
+        box-shadow:
+            0 0 0 12px rgba(179,154,107,0);
+
+    }
+
+    100% {
+
+        box-shadow:
+            0 0 0 0 rgba(179,154,107,0);
+
+    }
+
+}
+
+
+/* ==========================================
    PORTADA
-========================================================= */
+========================================== */
 
 .hero {
 
@@ -218,7 +549,7 @@ h2 {
         0;
 
     background:
-        rgba(50,40,32,.42);
+        rgba(50,40,32,.45);
 
 }
 
@@ -276,9 +607,6 @@ h2 {
 
     font-style:
         italic;
-
-    font-weight:
-        300;
 
 }
 
@@ -407,9 +735,9 @@ h2 {
 }
 
 
-/* =========================================================
+/* ==========================================
    INVITACIÓN
-========================================================= */
+========================================== */
 
 .invitation {
 
@@ -443,9 +771,9 @@ h2 {
 }
 
 
-/* =========================================================
+/* ==========================================
    FECHA
-========================================================= */
+========================================== */
 
 .date-section {
 
@@ -545,9 +873,9 @@ h2 {
 }
 
 
-/* =========================================================
+/* ==========================================
    CUENTA REGRESIVA
-========================================================= */
+========================================== */
 
 .countdown-section {
 
@@ -631,9 +959,9 @@ h2 {
 }
 
 
-/* =========================================================
+/* ==========================================
    HISTORIA
-========================================================= */
+========================================== */
 
 .story-section {
 
@@ -654,9 +982,9 @@ h2 {
 }
 
 
-/* =========================================================
+/* ==========================================
    GALERÍA
-========================================================= */
+========================================== */
 
 .gallery-section {
 
@@ -700,6 +1028,27 @@ h2 {
     box-shadow:
         var(--shadow);
 
+    opacity:
+        0;
+
+    transform:
+        translateY(25px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+
+}
+
+
+.photo.visible {
+
+    opacity:
+        1;
+
+    transform:
+        translateY(0);
+
 }
 
 
@@ -739,30 +1088,6 @@ h2 {
 }
 
 
-.photo2 {
-
-    grid-column:
-        span 1;
-
-}
-
-
-.photo3 {
-
-    grid-column:
-        span 1;
-
-}
-
-
-.photo4 {
-
-    grid-column:
-        span 1;
-
-}
-
-
 .photo5 {
 
     grid-column:
@@ -771,9 +1096,9 @@ h2 {
 }
 
 
-/* =========================================================
+/* ==========================================
    EVENTOS
-========================================================= */
+========================================== */
 
 .event-section {
 
@@ -813,6 +1138,26 @@ h2 {
 
     box-shadow:
         var(--shadow);
+
+    opacity:
+        0;
+
+    transform:
+        translateY(25px);
+
+    transition:
+        .8s ease;
+
+}
+
+
+.event-card.visible {
+
+    opacity:
+        1;
+
+    transform:
+        translateY(0);
 
 }
 
@@ -877,9 +1222,9 @@ h2 {
 }
 
 
-/* =========================================================
+/* ==========================================
    EXTRAS
-========================================================= */
+========================================== */
 
 .extras-section {
 
@@ -920,6 +1265,26 @@ h2 {
     box-shadow:
         var(--shadow);
 
+    opacity:
+        0;
+
+    transform:
+        translateY(25px);
+
+    transition:
+        .8s ease;
+
+}
+
+
+.extra-card.visible {
+
+    opacity:
+        1;
+
+    transform:
+        translateY(0);
+
 }
 
 
@@ -949,9 +1314,9 @@ h2 {
 }
 
 
-/* =========================================================
+/* ==========================================
    UBICACIÓN
-========================================================= */
+========================================== */
 
 .location-section {
 
@@ -1007,9 +1372,9 @@ h2 {
 }
 
 
-/* =========================================================
+/* ==========================================
    WHATSAPP
-========================================================= */
+========================================== */
 
 .confirmation-section {
 
@@ -1056,9 +1421,6 @@ h2 {
     transform:
         translateY(-3px);
 
-    box-shadow:
-        0 10px 25px rgba(37,211,102,.25);
-
 }
 
 
@@ -1070,9 +1432,9 @@ h2 {
 }
 
 
-/* =========================================================
+/* ==========================================
    FINAL
-========================================================= */
+========================================== */
 
 .final-section {
 
@@ -1134,17 +1496,6 @@ h2 {
 }
 
 
-.final-content p {
-
-    font-size:
-        1rem;
-
-    letter-spacing:
-        2px;
-
-}
-
-
 .final-content h2 {
 
     color:
@@ -1167,9 +1518,9 @@ h2 {
 }
 
 
-/* =========================================================
+/* ==========================================
    FOOTER
-========================================================= */
+========================================== */
 
 footer {
 
@@ -1202,75 +1553,15 @@ footer {
 }
 
 
-/* =========================================================
-   BOTÓN MÚSICA
-========================================================= */
-
-.music-button {
-
-    position:
-        fixed;
-
-    right:
-        20px;
-
-    bottom:
-        20px;
-
-    width:
-        55px;
-
-    height:
-        55px;
-
-    border-radius:
-        50%;
-
-    border:
-        1px solid rgba(255,255,255,.2);
-
-    background:
-        var(--brown-dark);
-
-    color:
-        white;
-
-    font-size:
-        1.3rem;
-
-    cursor:
-        pointer;
-
-    z-index:
-        999;
-
-    box-shadow:
-        0 8px 25px rgba(0,0,0,.2);
-
-    transition:
-        .3s;
-
-}
-
-
-.music-button:hover {
-
-    transform:
-        scale(1.08);
-
-}
-
-
-/* =========================================================
+/* ==========================================
    ANIMACIONES
-========================================================= */
+========================================== */
 
 @keyframes fadeUp {
 
     from {
 
-        opacity:
-            0;
+        opacity: 0;
 
         transform:
             translateY(30px);
@@ -1279,8 +1570,7 @@ footer {
 
     to {
 
-        opacity:
-            1;
+        opacity: 1;
 
         transform:
             translateY(0);
@@ -1316,9 +1606,9 @@ footer {
 }
 
 
-/* =========================================================
+/* ==========================================
    CELULAR
-========================================================= */
+========================================== */
 
 @media(max-width:700px) {
 
@@ -1326,6 +1616,14 @@ footer {
 
         padding:
             75px 18px;
+
+    }
+
+
+    .welcome-content h1 {
+
+        font-size:
+            4.5rem;
 
     }
 
@@ -1338,10 +1636,10 @@ footer {
     }
 
 
-    .welcome {
+    .welcome-date {
 
-        font-size:
-            .9rem;
+        letter-spacing:
+            3px;
 
     }
 
@@ -1419,6 +1717,14 @@ footer {
 
 @media(max-width:420px) {
 
+    .welcome-content h1 {
+
+        font-size:
+            3.8rem;
+
+    }
+
+
     .hero h1 {
 
         font-size:
@@ -1431,14 +1737,6 @@ footer {
 
         width:
             95px;
-
-    }
-
-
-    .gallery {
-
-        grid-auto-rows:
-            160px;
 
     }
 
