@@ -182,7 +182,7 @@ const BODA = {
 
     musica: {
 
-        archivo: "musica/nuestra-cancion.mp3",
+        archivo: "Coqueta (Remix).mp3",
 
         titulo: "Nuestra canción"
 
