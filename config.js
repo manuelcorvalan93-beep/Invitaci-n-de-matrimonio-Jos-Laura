@@ -1,56 +1,53 @@
 /* =========================================================
-   💍 CONFIGURACIÓN DE LA BODA
+   💍 CONFIGURACIÓN - JOSÉ & LAURA
    =========================================================
 
-   ESTE ES EL ARCHIVO PRINCIPAL QUE DEBES EDITAR.
+   ESTE ES EL ÚNICO ARCHIVO QUE NECESITAS EDITAR
+   PARA CAMBIAR LOS DATOS DE LA INVITACIÓN.
 
-   No necesitas modificar index.html, style.css ni script.js
-   para cambiar los datos normales de la invitación.
 ========================================================= */
 
 const BODA = {
 
-    /* ===============================
+    /* =====================================================
        NOVIOS
-    =============================== */
+    ===================================================== */
 
     novio: "José",
     novia: "Laura",
 
-    /* ===============================
-       FECHA Y HORA
-    =============================== */
+
+    /* =====================================================
+       FECHA
+    ===================================================== */
 
     fechaTexto: "27 de febrero de 2027",
 
     fechaCorta: "27 · 02 · 2027",
 
     /*
-       IMPORTANTE:
-       Usa formato:
-       AAAA-MM-DDTHH:MM:SS
+       Cambia la hora cuando la tengas.
 
        Ejemplo:
        2027-02-27T18:00:00
-
-       Mientras no sepas la hora puedes dejar:
-       2027-02-27T00:00:00
     */
 
     fechaEvento: "2027-02-27T00:00:00",
 
-    /* ===============================
+
+    /* =====================================================
        WHATSAPP
-    =============================== */
+    ===================================================== */
 
     whatsapp: "56953009921",
 
     mensajeWhatsapp:
         "Hola José y Laura, quiero confirmar mi asistencia a su matrimonio del 27 de febrero de 2027.",
 
-    /* ===============================
+
+    /* =====================================================
        CEREMONIA
-    =============================== */
+    ===================================================== */
 
     ceremonia: {
 
@@ -66,9 +63,10 @@ const BODA = {
 
     },
 
-    /* ===============================
+
+    /* =====================================================
        RECEPCIÓN
-    =============================== */
+    ===================================================== */
 
     recepcion: {
 
@@ -84,9 +82,10 @@ const BODA = {
 
     },
 
-    /* ===============================
+
+    /* =====================================================
        TEXTOS
-    =============================== */
+    ===================================================== */
 
     textos: {
 
@@ -105,18 +104,22 @@ const BODA = {
         confirmacion:
             "Nos encantaría contar contigo en este día tan especial.",
 
+        historia:
+            "Nuestra historia está llena de momentos, risas, aventuras y sueños compartidos. Hoy queremos comenzar juntos un nuevo capítulo.",
+
         mensajeFinal:
             "Gracias por ser parte de nuestra historia."
 
     },
 
-    /* ===============================
+
+    /* =====================================================
        INFORMACIÓN EXTRA
-    =============================== */
+    ===================================================== */
 
     extras: {
 
-        dressCode: "Por confirmar",
+        dressCode: "Elegante",
 
         regalos:
             "Tu presencia es nuestro mejor regalo.",
@@ -126,18 +129,67 @@ const BODA = {
 
     },
 
-    /* ===============================
-       FOTOS
-    =============================== */
+
+    /* =====================================================
+       📸 FOTOS
+       =====================================================
+
+       Las fotos deben estar dentro de:
+
+       fotos/
+
+       Ejemplo:
+
+       fotos/portada.jpg
+       fotos/foto1.jpg
+       fotos/foto2.jpg
+       etc.
+
+    ===================================================== */
 
     fotos: {
 
-        portada:
-            "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2000&q=85",
+        portada:  "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2000&q=85",
 
-        final:
-            "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=2000&q=85"
+        foto1: "fotos/foto1.jpg",
+
+        foto2: "fotos/foto2.jpg",
+
+        foto3: "fotos/foto3.jpg",
+
+        foto4: "fotos/foto4.jpg",
+
+        foto5: "fotos/foto5.jpg",
+
+        final: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=2000&q=85",
+
+    },
+
+
+    /* =====================================================
+       🎵 MÚSICA
+       =====================================================
+
+       La canción debe estar dentro de:
+
+       musica/
+
+       Ejemplo:
+
+       musica/nuestra-cancion.mp3
+
+    ===================================================== */
+
+    musica: {
+
+        archivo: "musica/nuestra-cancion.mp3",
+
+        titulo: "Nuestra canción"
 
     }
 
 };
+
+
+     
+  
