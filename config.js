@@ -1,3 +1,4 @@
+```javascript
 const BODA = {
 
     // ==========================================
@@ -122,7 +123,7 @@ const BODA = {
 
         portada: "foto1.jpg",
 
-        foto1: "foto2",
+        foto1: "foto2.jpg",
 
         foto2: "foto2.jpg",
 
@@ -150,6 +151,4 @@ const BODA = {
     }
 
 };
-
-     
-  
+```
