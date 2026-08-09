@@ -1,25 +1,26 @@
-```javascript
 // ============================================================
 // INVITACIÓN JOSÉ & LAURA
-// SCRIPT PRINCIPAL
 // ============================================================
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    console.log("Invitación cargada correctamente");
+    console.log("Invitación cargada");
 
     cargarDatos();
+
     cargarFotos();
-    configurarMusica();
+
     configurarBotonInvitacion();
+
     iniciarCuentaRegresiva();
+
     iniciarAnimaciones();
 
 });
 
 
 // ============================================================
-// FUNCIÓN PARA CAMBIAR TEXTOS
+// CAMBIAR TEXTO
 // ============================================================
 
 function setText(id, texto) {
@@ -34,7 +35,7 @@ function setText(id, texto) {
 
 
 // ============================================================
-// CARGAR DATOS DESDE CONFIG.JS
+// CARGAR DATOS
 // ============================================================
 
 function cargarDatos() {
@@ -44,6 +45,7 @@ function cargarDatos() {
         console.error("No se encontró config.js");
 
         return;
+
     }
 
 
@@ -65,9 +67,13 @@ function cargarDatos() {
     // FECHAS
 
     setText("fechaCorta", BODA.fechaCorta);
+
     setText("welcomeFecha", BODA.fechaCorta);
+
     setText("fechaTexto", BODA.fechaTexto);
+
     setText("fechaFinal", BODA.fechaCorta);
+
     setText("footerFecha", BODA.fechaTexto);
 
 
@@ -203,10 +209,11 @@ function cargarDatos() {
             BODA.whatsapp +
             "?text=" +
             mensaje;
+
     }
 
 
-    // GOOGLE MAPS
+    // MAPAS
 
     configurarMapa(
         "ceremoniaMaps",
@@ -227,7 +234,7 @@ function cargarDatos() {
 
 
 // ============================================================
-// GOOGLE MAPS
+// MAPAS
 // ============================================================
 
 function configurarMapa(id, url) {
@@ -253,7 +260,7 @@ function configurarMapa(id, url) {
 
 
 // ============================================================
-// CARGAR FOTOS
+// FOTOS
 // ============================================================
 
 function cargarFotos() {
@@ -263,46 +270,22 @@ function cargarFotos() {
     }
 
 
-    cargarFoto(
-        "foto1",
-        BODA.fotos.foto1
-    );
-
-    cargarFoto(
-        "foto2",
-        BODA.fotos.foto2
-    );
-
-    cargarFoto(
-        "foto3",
-        BODA.fotos.foto3
-    );
-
-    cargarFoto(
-        "foto4",
-        BODA.fotos.foto4
-    );
-
-    cargarFoto(
-        "foto5",
-        BODA.fotos.foto5
-    );
+    cargarFoto("foto1", BODA.fotos.foto1);
+    cargarFoto("foto2", BODA.fotos.foto2);
+    cargarFoto("foto3", BODA.fotos.foto3);
+    cargarFoto("foto4", BODA.fotos.foto4);
+    cargarFoto("foto5", BODA.fotos.foto5);
 
 
-    // PORTADA
+    // FOTO DE PORTADA
 
     const hero =
         document.querySelector(".hero");
 
-    if (
-        hero &&
-        BODA.fotos.portada
-    ) {
+    if (hero && BODA.fotos.portada) {
 
         hero.style.backgroundImage =
-            'url("' +
-            BODA.fotos.portada +
-            '")';
+            'url("' + BODA.fotos.portada + '")';
 
     }
 
@@ -310,19 +293,12 @@ function cargarFotos() {
     // PANTALLA INICIAL
 
     const welcome =
-        document.getElementById(
-            "welcomeScreen"
-        );
+        document.getElementById("welcomeScreen");
 
-    if (
-        welcome &&
-        BODA.fotos.portada
-    ) {
+    if (welcome && BODA.fotos.portada) {
 
         welcome.style.backgroundImage =
-            'url("' +
-            BODA.fotos.portada +
-            '")';
+            'url("' + BODA.fotos.portada + '")';
 
     }
 
@@ -330,19 +306,12 @@ function cargarFotos() {
     // FOTO FINAL
 
     const finalSection =
-        document.querySelector(
-            ".final-section"
-        );
+        document.querySelector(".final-section");
 
-    if (
-        finalSection &&
-        BODA.fotos.final
-    ) {
+    if (finalSection && BODA.fotos.final) {
 
         finalSection.style.backgroundImage =
-            'url("' +
-            BODA.fotos.final +
-            '")';
+            'url("' + BODA.fotos.final + '")';
 
     }
 
@@ -350,7 +319,7 @@ function cargarFotos() {
 
 
 // ============================================================
-// CARGAR FOTO INDIVIDUAL
+// FOTO INDIVIDUAL
 // ============================================================
 
 function cargarFoto(id, ruta) {
@@ -363,227 +332,84 @@ function cargarFoto(id, ruta) {
     }
 
     if (ruta) {
-
         imagen.src = ruta;
-
     }
 
 }
 
 
 // ============================================================
-// CONFIGURAR MÚSICA
-// ============================================================
-
-function configurarMusica() {
-
-    const audio =
-        document.getElementById("music");
-
-    const boton =
-        document.getElementById("musicButton");
-
-
-    if (!audio || !boton) {
-
-        console.error(
-            "No se encontró el reproductor de música"
-        );
-
-        return;
-    }
-
-
-    // IMPORTANTE:
-    // La canción está en la raíz del repositorio.
-
-    audio.src =
-        "Coqueta%20%28Remix%29.mp3";
-
-    audio.loop = true;
-
-    audio.preload = "auto";
-
-    audio.volume = 0.8;
-
-
-    // BOTÓN MÚSICA
-
-    boton.addEventListener(
-        "click",
-        async function () {
-
-            try {
-
-                if (audio.paused) {
-
-                    await audio.play();
-
-                    boton.textContent =
-                        "⏸️";
-
-                    boton.classList.add(
-                        "playing"
-                    );
-
-                } else {
-
-                    audio.pause();
-
-                    boton.textContent =
-                        "🎵";
-
-                    boton.classList.remove(
-                        "playing"
-                    );
-
-                }
-
-            } catch (error) {
-
-                console.error(
-                    "Error reproduciendo música:",
-                    error
-                );
-
-            }
-
-        }
-    );
-
-
-    // CUANDO REPRODUCE
-
-    audio.addEventListener(
-        "play",
-        function () {
-
-            boton.textContent =
-                "⏸️";
-
-            boton.classList.add(
-                "playing"
-            );
-
-        }
-    );
-
-
-    // CUANDO PAUSA
-
-    audio.addEventListener(
-        "pause",
-        function () {
-
-            boton.textContent =
-                "🎵";
-
-            boton.classList.remove(
-                "playing"
-            );
-
-        }
-    );
-
-
-    // ERROR
-
-    audio.addEventListener(
-        "error",
-        function () {
-
-            console.error(
-                "No se pudo cargar la canción:"
-            );
-
-            console.error(
-                audio.src
-            );
-
-            boton.textContent =
-                "❌";
-
-        }
-    );
-
-}
-
-
-// ============================================================
-// BOTÓN "ABRIR INVITACIÓN"
+// BOTÓN VER INVITACIÓN + MÚSICA
 // ============================================================
 
 function configurarBotonInvitacion() {
 
     const boton =
-        document.getElementById(
-            "openInvitation"
-        );
+        document.getElementById("openInvitation");
 
     const pantalla =
-        document.getElementById(
-            "welcomeScreen"
-        );
+        document.getElementById("welcomeScreen");
 
     const audio =
-        document.getElementById(
-            "music"
-        );
-
-    const botonMusica =
-        document.getElementById(
-            "musicButton"
-        );
+        document.getElementById("music");
 
 
     if (!boton) {
 
         console.error(
-            "No se encontró el botón ABRIR INVITACIÓN"
+            "No se encontró el botón VER INVITACIÓN"
         );
 
         return;
+
     }
 
+
+    // Preparar canción
+
+    if (audio) {
+
+        audio.src =
+            "Coqueta%20%28Remix%29.mp3";
+
+        audio.loop = true;
+
+        audio.preload = "auto";
+
+    }
+
+
+    // Al presionar VER INVITACIÓN
 
     boton.addEventListener(
         "click",
         async function () {
 
             console.log(
-                "ABRIENDO INVITACIÓN..."
+                "VER INVITACIÓN presionado"
             );
 
 
             // ========================================
-            // INTENTAR REPRODUCIR LA CANCIÓN
+            // REPRODUCIR MÚSICA
             // ========================================
 
             if (audio) {
 
                 try {
 
+                    audio.volume = 1;
+
                     await audio.play();
 
-                    if (botonMusica) {
-
-                        botonMusica.textContent =
-                            "⏸️";
-
-                        botonMusica.classList.add(
-                            "playing"
-                        );
-
-                    }
-
                     console.log(
-                        "Música reproduciéndose"
+                        "🎵 Música iniciada correctamente"
                     );
 
                 } catch (error) {
 
                     console.error(
-                        "No se pudo iniciar la música:",
+                        "No se pudo reproducir la música:",
                         error
                     );
 
@@ -593,48 +419,28 @@ function configurarBotonInvitacion() {
 
 
             // ========================================
-            // CERRAR PANTALLA DE BIENVENIDA
+            // OCULTAR PANTALLA INICIAL
             // ========================================
 
             if (pantalla) {
 
-                pantalla.classList.add(
-                    "hide"
+                pantalla.classList.add("hide");
+
+                setTimeout(
+                    function () {
+
+                        pantalla.style.display =
+                            "none";
+
+                    },
+                    1000
                 );
 
             }
 
 
             // ========================================
-            // PERMITIR SCROLL
-            // ========================================
-
-            document.body.classList.remove(
-                "invitation-open"
-            );
-
-
-            // ========================================
-            // OCULTAR COMPLETAMENTE
-            // ========================================
-
-            setTimeout(
-                function () {
-
-                    if (pantalla) {
-
-                        pantalla.style.display =
-                            "none";
-
-                    }
-
-                },
-                1000
-            );
-
-
-            // ========================================
-            // LLEVAR AL INICIO
+            // IR AL INICIO DE LA INVITACIÓN
             // ========================================
 
             window.scrollTo({
@@ -658,9 +464,7 @@ function iniciarCuentaRegresiva() {
         typeof BODA === "undefined" ||
         !BODA.fechaEvento
     ) {
-
         return;
-
     }
 
 
@@ -687,6 +491,7 @@ function iniciarCuentaRegresiva() {
             setText("seconds", "0");
 
             return;
+
         }
 
 
@@ -734,26 +539,17 @@ function iniciarCuentaRegresiva() {
 
         setText(
             "hours",
-            String(horas).padStart(
-                2,
-                "0"
-            )
+            String(horas).padStart(2, "0")
         );
 
         setText(
             "minutes",
-            String(minutos).padStart(
-                2,
-                "0"
-            )
+            String(minutos).padStart(2, "0")
         );
 
         setText(
             "seconds",
-            String(segundos).padStart(
-                2,
-                "0"
-            )
+            String(segundos).padStart(2, "0")
         );
 
     }
@@ -770,7 +566,7 @@ function iniciarCuentaRegresiva() {
 
 
 // ============================================================
-// ANIMACIONES AL HACER SCROLL
+// ANIMACIONES
 // ============================================================
 
 function iniciarAnimaciones() {
@@ -781,21 +577,18 @@ function iniciarAnimaciones() {
         );
 
 
-    if (
-        !("IntersectionObserver" in window)
-    ) {
+    if (!("IntersectionObserver" in window)) {
 
         elementos.forEach(
             function (elemento) {
 
-                elemento.classList.add(
-                    "visible"
-                );
+                elemento.classList.add("visible");
 
             }
         );
 
         return;
+
     }
 
 
@@ -829,12 +622,9 @@ function iniciarAnimaciones() {
     elementos.forEach(
         function (elemento) {
 
-            observer.observe(
-                elemento
-            );
+            observer.observe(elemento);
 
         }
     );
 
 }
-```
