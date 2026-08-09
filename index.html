@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="es">
 
 <head>
@@ -10,7 +11,9 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>José & Laura</title>
+    <title>
+        José & Laura
+    </title>
 
     <meta
         name="description"
@@ -29,7 +32,7 @@
 
     <link
         rel="preconnect"
-        href="https://fonts.googleapis.com"
+        href="https://fonts.gstatic.com"
         crossorigin
     >
 
@@ -44,9 +47,77 @@
 <body>
 
 
-<!-- =====================================================
-     MÚSICA
-===================================================== -->
+<!-- ==========================================
+     PANTALLA DE BIENVENIDA
+========================================== -->
+
+<div
+    id="welcomeScreen"
+    class="welcome-screen"
+>
+
+    <div class="welcome-overlay"></div>
+
+
+    <div class="welcome-content">
+
+        <p class="welcome-small">
+            ESTÁS INVITADO A NUESTRA BODA
+        </p>
+
+
+        <h1>
+
+            <span id="welcomeNovio">
+                José
+            </span>
+
+            <em>&</em>
+
+            <span id="welcomeNovia">
+                Laura
+            </span>
+
+        </h1>
+
+
+        <div class="welcome-line"></div>
+
+
+        <p
+            id="welcomeFecha"
+            class="welcome-date"
+        >
+            27 · 02 · 2027
+        </p>
+
+
+        <button
+            id="openInvitation"
+            class="open-button"
+        >
+
+            ABRIR INVITACIÓN
+
+            <span>
+                ♥
+            </span>
+
+        </button>
+
+
+        <p class="music-hint">
+            🎵 La invitación tiene música
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- ==========================================
+     AUDIO
+========================================== -->
 
 <audio
     id="music"
@@ -55,14 +126,15 @@
 ></audio>
 
 
-<!-- =====================================================
-     BOTÓN MÚSICA
-===================================================== -->
+<!-- ==========================================
+     BOTÓN DE MÚSICA
+========================================== -->
 
 <button
     id="musicButton"
     class="music-button"
-    aria-label="Reproducir música"
+    aria-label="Controlar música"
+    title="Reproducir música"
 >
 
     🎵
@@ -70,13 +142,14 @@
 </button>
 
 
-<!-- =====================================================
+<!-- ==========================================
      PORTADA
-===================================================== -->
+========================================== -->
 
 <header class="hero">
 
     <div class="hero-overlay"></div>
+
 
     <div class="hero-content">
 
@@ -114,11 +187,7 @@
         <p
             id="bienvenida"
             class="welcome"
-        >
-            Con mucha alegría queremos compartir
-            contigo uno de los días más importantes
-            de nuestras vidas.
-        </p>
+        ></p>
 
 
         <a
@@ -138,9 +207,9 @@
 </header>
 
 
-<!-- =====================================================
+<!-- ==========================================
      INVITACIÓN
-===================================================== -->
+========================================== -->
 
 <section
     id="invitacion"
@@ -186,9 +255,9 @@
 </section>
 
 
-<!-- =====================================================
+<!-- ==========================================
      FECHA
-===================================================== -->
+========================================== -->
 
 <section class="date-section">
 
@@ -210,7 +279,6 @@
 
 
         <div class="date-boxes">
-
 
             <div class="date-box">
 
@@ -250,7 +318,6 @@
 
             </div>
 
-
         </div>
 
     </div>
@@ -258,9 +325,9 @@
 </section>
 
 
-<!-- =====================================================
+<!-- ==========================================
      CUENTA REGRESIVA
-===================================================== -->
+========================================== -->
 
 <section class="section countdown-section">
 
@@ -277,7 +344,6 @@
 
 
         <div class="countdown">
-
 
             <div class="count-box">
 
@@ -330,7 +396,6 @@
 
             </div>
 
-
         </div>
 
     </div>
@@ -338,9 +403,9 @@
 </section>
 
 
-<!-- =====================================================
-     NUESTRA HISTORIA
-===================================================== -->
+<!-- ==========================================
+     HISTORIA
+========================================== -->
 
 <section class="section story-section">
 
@@ -366,15 +431,14 @@
             class="text story-text"
         ></p>
 
-
     </div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- ==========================================
      GALERÍA
-===================================================== -->
+========================================== -->
 
 <section class="section gallery-section">
 
@@ -394,49 +458,58 @@
 
 
             <div class="photo photo1">
+
                 <img
                     id="foto1"
                     src=""
                     alt="José y Laura"
                 >
+
             </div>
 
 
             <div class="photo photo2">
+
                 <img
                     id="foto2"
                     src=""
                     alt="José y Laura"
                 >
+
             </div>
 
 
             <div class="photo photo3">
+
                 <img
                     id="foto3"
                     src=""
                     alt="José y Laura"
                 >
+
             </div>
 
 
             <div class="photo photo4">
+
                 <img
                     id="foto4"
                     src=""
                     alt="José y Laura"
                 >
+
             </div>
 
 
             <div class="photo photo5">
+
                 <img
                     id="foto5"
                     src=""
                     alt="José y Laura"
                 >
-            </div>
 
+            </div>
 
         </div>
 
@@ -445,9 +518,9 @@
 </section>
 
 
-<!-- =====================================================
+<!-- ==========================================
      EVENTOS
-===================================================== -->
+========================================== -->
 
 <section class="section event-section">
 
@@ -465,8 +538,6 @@
 
         <div class="event-grid">
 
-
-            <!-- CEREMONIA -->
 
             <div class="event-card">
 
@@ -509,8 +580,6 @@
 
             </div>
 
-
-            <!-- RECEPCIÓN -->
 
             <div class="event-card">
 
@@ -561,9 +630,9 @@
 </section>
 
 
-<!-- =====================================================
-     INFORMACIÓN EXTRA
-===================================================== -->
+<!-- ==========================================
+     INFORMACIÓN
+========================================== -->
 
 <section class="section extras-section">
 
@@ -627,9 +696,9 @@
 </section>
 
 
-<!-- =====================================================
+<!-- ==========================================
      UBICACIÓN
-===================================================== -->
+========================================== -->
 
 <section class="section location-section">
 
@@ -678,9 +747,9 @@
 </section>
 
 
-<!-- =====================================================
+<!-- ==========================================
      CONFIRMACIÓN
-===================================================== -->
+========================================== -->
 
 <section class="section confirmation-section">
 
@@ -709,9 +778,7 @@
             rel="noopener"
         >
 
-            <span>
-                💬
-            </span>
+            💬
 
             CONFIRMAR POR WHATSAPP
 
@@ -728,9 +795,9 @@
 </section>
 
 
-<!-- =====================================================
+<!-- ==========================================
      FINAL
-===================================================== -->
+========================================== -->
 
 <section class="final-section">
 
@@ -768,9 +835,9 @@
 </section>
 
 
-<!-- =====================================================
+<!-- ==========================================
      FOOTER
-===================================================== -->
+========================================== -->
 
 <footer>
 
@@ -802,10 +869,6 @@
 
 </footer>
 
-
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
 
 <script src="config.js"></script>
 
