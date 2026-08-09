@@ -1,497 +1,461 @@
-// ============================================================
-// INVITACIÓN JOSÉ & LAURA
-// ============================================================
-
+```javascript
 document.addEventListener("DOMContentLoaded", function () {
 
-    console.log("Invitación cargada");
-
-    cargarDatos();
-
-    cargarFotos();
-
-    configurarBotonInvitacion();
-
-    iniciarCuentaRegresiva();
-
-    iniciarAnimaciones();
-
-});
+    console.log("=================================");
+    console.log("💍 INVITACIÓN JOSÉ & LAURA");
+    console.log("=================================");
 
 
-// ============================================================
-// CAMBIAR TEXTO
-// ============================================================
-
-function setText(id, texto) {
-
-    const elemento = document.getElementById(id);
-
-    if (elemento && texto !== undefined) {
-        elemento.textContent = texto;
-    }
-
-}
-
-
-// ============================================================
-// CARGAR DATOS
-// ============================================================
-
-function cargarDatos() {
+    // =====================================================
+    // COMPROBAR CONFIGURACIÓN
+    // =====================================================
 
     if (typeof BODA === "undefined") {
 
-        console.error("No se encontró config.js");
+        console.error(
+            "❌ ERROR: config.js no fue cargado."
+        );
 
         return;
+    }
+
+
+    console.log("✅ config.js cargado");
+
+
+    // =====================================================
+    // FUNCIÓN TEXTO
+    // =====================================================
+
+    function texto(id, valor) {
+
+        const elemento =
+            document.getElementById(id);
+
+        if (
+            elemento &&
+            valor !== undefined &&
+            valor !== null
+        ) {
+
+            elemento.textContent =
+                valor;
+        }
+    }
+
+
+    // =====================================================
+    // NOMBRES
+    // =====================================================
+
+    texto("novio", BODA.novio);
+    texto("novia", BODA.novia);
+
+    texto("welcomeNovio", BODA.novio);
+    texto("welcomeNovia", BODA.novia);
+
+    texto("novioFinal", BODA.novio);
+    texto("noviaFinal", BODA.novia);
+
+    texto("footerNovio", BODA.novio);
+    texto("footerNovia", BODA.novia);
+
+
+    // =====================================================
+    // FECHAS
+    // =====================================================
+
+    texto(
+        "fechaTexto",
+        BODA.fechaTexto
+    );
+
+    texto(
+        "fechaCorta",
+        BODA.fechaCorta
+    );
+
+    texto(
+        "welcomeFecha",
+        BODA.fechaCorta
+    );
+
+    texto(
+        "fechaFinal",
+        BODA.fechaCorta
+    );
+
+    texto(
+        "footerFecha",
+        BODA.fechaTexto
+    );
+
+
+    // =====================================================
+    // TEXTOS
+    // =====================================================
+
+    if (BODA.textos) {
+
+        texto(
+            "bienvenida",
+            BODA.textos.bienvenida
+        );
+
+        texto(
+            "invitacionTexto",
+            BODA.textos.invitacion
+        );
+
+        texto(
+            "invitacionTexto2",
+            BODA.textos.invitacion2
+        );
+
+        texto(
+            "frase",
+            BODA.textos.frase
+        );
+
+        texto(
+            "historia",
+            BODA.textos.historia
+        );
+
+        texto(
+            "confirmacion",
+            BODA.textos.confirmacion
+        );
+
+        texto(
+            "mensajeFinal",
+            BODA.textos.mensajeFinal
+        );
 
     }
 
 
-    // NOMBRES
+    // =====================================================
+    // FOTOS
+    // =====================================================
 
-    setText("novio", BODA.novio);
-    setText("novia", BODA.novia);
+    function cargarFoto(id, archivo) {
 
-    setText("welcomeNovio", BODA.novio);
-    setText("welcomeNovia", BODA.novia);
+        const img =
+            document.getElementById(id);
 
-    setText("novioFinal", BODA.novio);
-    setText("noviaFinal", BODA.novia);
+        if (!img) {
 
-    setText("footerNovio", BODA.novio);
-    setText("footerNovia", BODA.novia);
+            console.warn(
+                "⚠️ No existe:",
+                id
+            );
 
-
-    // FECHAS
-
-    setText("fechaCorta", BODA.fechaCorta);
-
-    setText("welcomeFecha", BODA.fechaCorta);
-
-    setText("fechaTexto", BODA.fechaTexto);
-
-    setText("fechaFinal", BODA.fechaCorta);
-
-    setText("footerFecha", BODA.fechaTexto);
+            return;
+        }
 
 
-    // TEXTOS
+        if (!archivo) {
 
-    setText(
-        "bienvenida",
-        BODA.textos.bienvenida
-    );
+            console.warn(
+                "⚠️ No hay archivo para:",
+                id
+            );
 
-    setText(
-        "invitacionTexto",
-        BODA.textos.invitacion
-    );
-
-    setText(
-        "invitacionTexto2",
-        BODA.textos.invitacion2
-    );
-
-    setText(
-        "frase",
-        BODA.textos.frase
-    );
-
-    setText(
-        "historia",
-        BODA.textos.historia
-    );
-
-    setText(
-        "confirmacion",
-        BODA.textos.confirmacion
-    );
-
-    setText(
-        "mensajeFinal",
-        BODA.textos.mensajeFinal
-    );
+            return;
+        }
 
 
+        img.src = archivo;
+
+
+        img.onload = function () {
+
+            console.log(
+                "✅ Foto cargada:",
+                id,
+                archivo
+            );
+
+        };
+
+
+        img.onerror = function () {
+
+            console.error(
+                "❌ No se pudo cargar:",
+                archivo
+            );
+
+        };
+
+    }
+
+
+    if (BODA.fotos) {
+
+        cargarFoto(
+            "foto1",
+            BODA.fotos.foto1
+        );
+
+        cargarFoto(
+            "foto2",
+            BODA.fotos.foto2
+        );
+
+        cargarFoto(
+            "foto3",
+            BODA.fotos.foto3
+        );
+
+        cargarFoto(
+            "foto4",
+            BODA.fotos.foto4
+        );
+
+        cargarFoto(
+            "foto5",
+            BODA.fotos.foto5
+        );
+
+
+        // -----------------------------------------------
+        // PORTADA
+        // -----------------------------------------------
+
+        const portada =
+            document.querySelector(
+                ".couple-photo img"
+            );
+
+
+        if (
+            portada &&
+            BODA.fotos.portada
+        ) {
+
+            portada.src =
+                BODA.fotos.portada;
+
+            portada.alt =
+                BODA.novio +
+                " y " +
+                BODA.novia;
+
+        }
+
+    }
+
+
+    // =====================================================
     // CEREMONIA
+    // =====================================================
 
-    setText(
-        "ceremoniaNombre",
-        BODA.ceremonia.nombre
-    );
+    if (BODA.ceremonia) {
 
-    setText(
-        "ceremoniaHora",
-        BODA.ceremonia.hora
-    );
+        texto(
+            "ceremoniaNombre",
+            BODA.ceremonia.nombre
+        );
 
-    setText(
-        "ceremoniaLugar",
-        BODA.ceremonia.lugar
-    );
+        texto(
+            "ceremoniaHora",
+            BODA.ceremonia.hora
+        );
 
-    setText(
-        "ceremoniaDireccion",
-        BODA.ceremonia.direccion
-    );
+        texto(
+            "ceremoniaLugar",
+            BODA.ceremonia.lugar
+        );
+
+        texto(
+            "ceremoniaDireccion",
+            BODA.ceremonia.direccion
+        );
 
 
+        const mapa =
+            document.getElementById(
+                "ceremoniaMaps"
+            );
+
+
+        if (
+            mapa &&
+            BODA.ceremonia.maps
+        ) {
+
+            mapa.href =
+                BODA.ceremonia.maps;
+
+        }
+
+    }
+
+
+    // =====================================================
     // RECEPCIÓN
+    // =====================================================
 
-    setText(
-        "recepcionNombre",
-        BODA.recepcion.nombre
-    );
+    if (BODA.recepcion) {
 
-    setText(
-        "recepcionHora",
-        BODA.recepcion.hora
-    );
+        texto(
+            "recepcionNombre",
+            BODA.recepcion.nombre
+        );
 
-    setText(
-        "recepcionLugar",
-        BODA.recepcion.lugar
-    );
+        texto(
+            "recepcionHora",
+            BODA.recepcion.hora
+        );
 
-    setText(
-        "recepcionDireccion",
-        BODA.recepcion.direccion
-    );
+        texto(
+            "recepcionLugar",
+            BODA.recepcion.lugar
+        );
 
-
-    // INFORMACIÓN
-
-    setText(
-        "dressCode",
-        BODA.extras.dressCode
-    );
-
-    setText(
-        "regalos",
-        BODA.extras.regalos
-    );
-
-    setText(
-        "telefono",
-        BODA.extras.telefono
-    );
+        texto(
+            "recepcionDireccion",
+            BODA.recepcion.direccion
+        );
 
 
-    // UBICACIÓN
-
-    setText(
-        "lugarPrincipal",
-        BODA.ceremonia.lugar
-    );
-
-    setText(
-        "direccionPrincipal",
-        BODA.ceremonia.direccion
-    );
+        const mapa =
+            document.getElementById(
+                "recepcionMaps"
+            );
 
 
+        if (
+            mapa &&
+            BODA.recepcion.maps
+        ) {
+
+            mapa.href =
+                BODA.recepcion.maps;
+
+        }
+
+
+        texto(
+            "lugarPrincipal",
+            BODA.recepcion.lugar
+        );
+
+        texto(
+            "direccionPrincipal",
+            BODA.recepcion.direccion
+        );
+
+
+        const mapaPrincipal =
+            document.getElementById(
+                "mapsPrincipal"
+            );
+
+
+        if (
+            mapaPrincipal &&
+            BODA.recepcion.maps
+        ) {
+
+            mapaPrincipal.href =
+                BODA.recepcion.maps;
+
+        }
+
+    }
+
+
+    // =====================================================
+    // INFORMACIÓN EXTRA
+    // =====================================================
+
+    if (BODA.extras) {
+
+        texto(
+            "dressCode",
+            BODA.extras.dressCode
+        );
+
+        texto(
+            "regalos",
+            BODA.extras.regalos
+        );
+
+        texto(
+            "telefono",
+            BODA.extras.telefono
+        );
+
+    }
+
+
+    // =====================================================
     // WHATSAPP
+    // =====================================================
 
     const whatsapp =
-        document.getElementById("whatsappButton");
+        document.getElementById(
+            "whatsappButton"
+        );
 
-    if (whatsapp) {
+
+    if (
+        whatsapp &&
+        BODA.whatsapp
+    ) {
 
         const mensaje =
-            encodeURIComponent(
-                BODA.mensajeWhatsapp
-            );
+            BODA.mensajeWhatsapp ||
+            "Hola José y Laura, quiero confirmar mi asistencia.";
+
 
         whatsapp.href =
             "https://wa.me/" +
             BODA.whatsapp +
             "?text=" +
-            mensaje;
-
-    }
-
-
-    // MAPAS
-
-    configurarMapa(
-        "ceremoniaMaps",
-        BODA.ceremonia.maps
-    );
-
-    configurarMapa(
-        "recepcionMaps",
-        BODA.recepcion.maps
-    );
-
-    configurarMapa(
-        "mapsPrincipal",
-        BODA.ceremonia.maps
-    );
-
-}
-
-
-// ============================================================
-// MAPAS
-// ============================================================
-
-function configurarMapa(id, url) {
-
-    const elemento =
-        document.getElementById(id);
-
-    if (!elemento) {
-        return;
-    }
-
-    if (url && url.trim() !== "") {
-
-        elemento.href = url;
-
-    } else {
-
-        elemento.style.display = "none";
-
-    }
-
-}
-
-
-// ============================================================
-// FOTOS
-// ============================================================
-
-function cargarFotos() {
-
-    if (typeof BODA === "undefined") {
-        return;
-    }
-
-
-    cargarFoto("foto1", BODA.fotos.foto1);
-    cargarFoto("foto2", BODA.fotos.foto2);
-    cargarFoto("foto3", BODA.fotos.foto3);
-    cargarFoto("foto4", BODA.fotos.foto4);
-    cargarFoto("foto5", BODA.fotos.foto5);
-
-
-    // FOTO DE PORTADA
-
-    const hero =
-        document.querySelector(".hero");
-
-    if (hero && BODA.fotos.portada) {
-
-        hero.style.backgroundImage =
-            'url("' + BODA.fotos.portada + '")';
-
-    }
-
-
-    // PANTALLA INICIAL
-
-    const welcome =
-        document.getElementById("welcomeScreen");
-
-    if (welcome && BODA.fotos.portada) {
-
-        welcome.style.backgroundImage =
-            'url("' + BODA.fotos.portada + '")';
-
-    }
-
-
-    // FOTO FINAL
-
-    const finalSection =
-        document.querySelector(".final-section");
-
-    if (finalSection && BODA.fotos.final) {
-
-        finalSection.style.backgroundImage =
-            'url("' + BODA.fotos.final + '")';
-
-    }
-
-}
-
-
-// ============================================================
-// FOTO INDIVIDUAL
-// ============================================================
-
-function cargarFoto(id, ruta) {
-
-    const imagen =
-        document.getElementById(id);
-
-    if (!imagen) {
-        return;
-    }
-
-    if (ruta) {
-        imagen.src = ruta;
-    }
-
-}
-
-
-// ============================================================
-// BOTÓN VER INVITACIÓN + MÚSICA
-// ============================================================
-
-function configurarBotonInvitacion() {
-
-    const boton =
-        document.getElementById("openInvitation");
-
-    const pantalla =
-        document.getElementById("welcomeScreen");
-
-    const audio =
-        document.getElementById("music");
-
-
-    if (!boton) {
-
-        console.error(
-            "No se encontró el botón VER INVITACIÓN"
-        );
-
-        return;
-
-    }
-
-
-    // Preparar canción
-
-    if (audio) {
-
-        audio.src =
-            "Coqueta%20%28Remix%29.mp3";
-
-        audio.loop = true;
-
-        audio.preload = "auto";
-
-    }
-
-
-    // Al presionar VER INVITACIÓN
-
-    boton.addEventListener(
-        "click",
-        async function () {
-
-            console.log(
-                "VER INVITACIÓN presionado"
+            encodeURIComponent(
+                mensaje
             );
 
-
-            // ========================================
-            // REPRODUCIR MÚSICA
-            // ========================================
-
-            if (audio) {
-
-                try {
-
-                    audio.volume = 1;
-
-                    await audio.play();
-
-                    console.log(
-                        "🎵 Música iniciada correctamente"
-                    );
-
-                } catch (error) {
-
-                    console.error(
-                        "No se pudo reproducir la música:",
-                        error
-                    );
-
-                }
-
-            }
-
-
-            // ========================================
-            // OCULTAR PANTALLA INICIAL
-            // ========================================
-
-            if (pantalla) {
-
-                pantalla.classList.add("hide");
-
-                setTimeout(
-                    function () {
-
-                        pantalla.style.display =
-                            "none";
-
-                    },
-                    1000
-                );
-
-            }
-
-
-            // ========================================
-            // IR AL INICIO DE LA INVITACIÓN
-            // ========================================
-
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-
-        }
-    );
-
-}
-
-
-// ============================================================
-// CUENTA REGRESIVA
-// ============================================================
-
-function iniciarCuentaRegresiva() {
-
-    if (
-        typeof BODA === "undefined" ||
-        !BODA.fechaEvento
-    ) {
-        return;
     }
 
 
-    const fecha =
-        new Date(
-            BODA.fechaEvento
-        ).getTime();
+    // =====================================================
+    // CUENTA REGRESIVA
+    // =====================================================
+
+    function actualizarContador() {
+
+        if (!BODA.fechaEvento) {
+            return;
+        }
 
 
-    function actualizar() {
+        const objetivo =
+            new Date(
+                BODA.fechaEvento
+            ).getTime();
+
 
         const ahora =
             new Date().getTime();
 
+
         const diferencia =
-            fecha - ahora;
+            objetivo - ahora;
 
 
         if (diferencia <= 0) {
 
-            setText("days", "0");
-            setText("hours", "0");
-            setText("minutes", "0");
-            setText("seconds", "0");
+            texto("days", "0");
+            texto("hours", "0");
+            texto("minutes", "0");
+            texto("seconds", "0");
 
             return;
-
         }
 
 
@@ -504,127 +468,236 @@ function iniciarCuentaRegresiva() {
 
         const horas =
             Math.floor(
-                (
-                    diferencia %
-                    (1000 * 60 * 60 * 24)
-                ) /
+                (diferencia %
+                    (1000 * 60 * 60 * 24)) /
                 (1000 * 60 * 60)
             );
 
 
         const minutos =
             Math.floor(
-                (
-                    diferencia %
-                    (1000 * 60 * 60)
-                ) /
+                (diferencia %
+                    (1000 * 60 * 60)) /
                 (1000 * 60)
             );
 
 
         const segundos =
             Math.floor(
-                (
-                    diferencia %
-                    (1000 * 60)
-                ) /
+                (diferencia %
+                    (1000 * 60)) /
                 1000
             );
 
 
-        setText(
+        texto(
             "days",
             dias
         );
 
-        setText(
+        texto(
             "hours",
-            String(horas).padStart(2, "0")
+            String(horas).padStart(
+                2,
+                "0"
+            )
         );
 
-        setText(
+        texto(
             "minutes",
-            String(minutos).padStart(2, "0")
+            String(minutos).padStart(
+                2,
+                "0"
+            )
         );
 
-        setText(
+        texto(
             "seconds",
-            String(segundos).padStart(2, "0")
+            String(segundos).padStart(
+                2,
+                "0"
+            )
         );
 
     }
 
 
-    actualizar();
+    actualizarContador();
+
 
     setInterval(
-        actualizar,
+        actualizarContador,
         1000
     );
 
-}
 
+    // =====================================================
+    // BOTÓN VER INVITACIÓN
+    // =====================================================
 
-// ============================================================
-// ANIMACIONES
-// ============================================================
-
-function iniciarAnimaciones() {
-
-    const elementos =
-        document.querySelectorAll(
-            ".event-card, .extra-card, .location-card, .date-box, .count-box, .photo"
+    const boton =
+        document.getElementById(
+            "openInvitation"
         );
 
 
-    if (!("IntersectionObserver" in window)) {
+    const pantalla =
+        document.getElementById(
+            "welcomeScreen"
+        );
 
-        elementos.forEach(
-            function (elemento) {
 
-                elemento.classList.add("visible");
+    const audio =
+        document.getElementById(
+            "music"
+        );
+
+
+    if (!boton) {
+
+        console.error(
+            "❌ No existe #openInvitation"
+        );
+
+    } else {
+
+        console.log(
+            "✅ Botón encontrado"
+        );
+
+
+        boton.addEventListener(
+            "click",
+            function () {
+
+                console.log(
+                    "❤️ Botón presionado"
+                );
+
+
+                // -----------------------------------------
+                // OCULTAR PANTALLA
+                // -----------------------------------------
+
+                if (pantalla) {
+
+                    pantalla.style.opacity =
+                        "0";
+
+                    pantalla.style.pointerEvents =
+                        "none";
+
+
+                    setTimeout(
+                        function () {
+
+                            pantalla.style.display =
+                                "none";
+
+                        },
+                        800
+                    );
+
+                }
+
+
+                // -----------------------------------------
+                // MÚSICA
+                // -----------------------------------------
+
+                if (audio) {
+
+                    audio.volume =
+                        0.8;
+
+
+                    audio.play()
+                        .then(
+                            function () {
+
+                                console.log(
+                                    "🎵 Música reproduciéndose"
+                                );
+
+                            }
+                        )
+                        .catch(
+                            function (error) {
+
+                                console.error(
+                                    "❌ Error al reproducir música:",
+                                    error
+                                );
+
+                            }
+                        );
+
+                } else {
+
+                    console.error(
+                        "❌ No existe #music"
+                    );
+
+                }
 
             }
         );
-
-        return;
 
     }
 
 
-    const observer =
-        new IntersectionObserver(
-            function (entries) {
+    // =====================================================
+    // COMPROBAR AUDIO
+    // =====================================================
 
-                entries.forEach(
-                    function (entry) {
+    if (audio) {
 
-                        if (
-                            entry.isIntersecting
-                        ) {
+        audio.addEventListener(
+            "error",
+            function () {
 
-                            entry.target.classList.add(
-                                "visible"
-                            );
-
-                        }
-
-                    }
+                console.error(
+                    "❌ ERROR: No se pudo cargar el MP3."
                 );
 
-            },
-            {
-                threshold: 0.15
+                console.error(
+                    "Archivo esperado:",
+                    "Coqueta (Remix).mp3"
+                );
+
             }
         );
 
 
-    elementos.forEach(
-        function (elemento) {
+        audio.addEventListener(
+            "canplay",
+            function () {
 
-            observer.observe(elemento);
+                console.log(
+                    "🎵 MP3 encontrado y listo."
+                );
 
-        }
+            }
+        );
+
+    }
+
+
+    // =====================================================
+    // FINAL
+    // =====================================================
+
+    console.log(
+        "================================="
     );
 
-}
+    console.log(
+        "✅ TODO CARGADO CORRECTAMENTE"
+    );
+
+    console.log(
+        "================================="
+    );
+
+});
+```
