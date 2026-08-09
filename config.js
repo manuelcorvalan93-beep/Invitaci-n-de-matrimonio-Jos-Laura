@@ -180,7 +180,7 @@ const BODA = {
 
     ===================================================== */
 
-    musica: {
+    Cancion: {
 
         archivo: "Coqueta (Remix).mp3",
 
