@@ -1,193 +1,525 @@
-/* =====================================================
+/* =========================================================
+   SISTEMA DE LA INVITACIÓN
+========================================================= */
+
+
+/* =========================================================
+   DATOS PRINCIPALES
+========================================================= */
+
+document.title =
+    `${BODA.novio} & ${BODA.novia} | ${BODA.fechaTexto}`;
+
+
+/* =========================================================
+   FUNCIÓN AUXILIAR
+========================================================= */
+
+function setText(id, value) {
+
+    const element =
+        document.getElementById(id);
+
+    if (element && value !== undefined) {
+
+        element.textContent = value;
+
+    }
+
+}
+
+
+/* =========================================================
+   NOMBRES
+========================================================= */
+
+setText("novio", BODA.novio);
+
+setText("novia", BODA.novia);
+
+setText("novioFinal", BODA.novio);
+
+setText("noviaFinal", BODA.novia);
+
+setText("footerNovio", BODA.novio);
+
+setText("footerNovia", BODA.novia);
+
+
+/* =========================================================
+   FECHA
+========================================================= */
+
+setText(
+    "fechaCorta",
+    BODA.fechaCorta
+);
+
+setText(
+    "fechaTexto",
+    BODA.fechaTexto
+);
+
+setText(
+    "fechaFinal",
+    BODA.fechaCorta
+);
+
+setText(
+    "footerFecha",
+    BODA.fechaTexto
+);
+
+
+/* =========================================================
+   TEXTOS
+========================================================= */
+
+setText(
+    "bienvenida",
+    BODA.textos.bienvenida
+);
+
+setText(
+    "invitacionTexto",
+    BODA.textos.invitacion
+);
+
+setText(
+    "invitacionTexto2",
+    BODA.textos.invitacion2
+);
+
+setText(
+    "frase",
+    BODA.textos.frase
+);
+
+setText(
+    "confirmacion",
+    BODA.textos.confirmacion
+);
+
+setText(
+    "mensajeFinal",
+    BODA.textos.mensajeFinal
+);
+
+
+/* =========================================================
+   CEREMONIA
+========================================================= */
+
+setText(
+    "ceremoniaNombre",
+    BODA.ceremonia.nombre
+);
+
+setText(
+    "ceremoniaHora",
+    BODA.ceremonia.hora
+);
+
+setText(
+    "ceremoniaLugar",
+    BODA.ceremonia.lugar
+);
+
+setText(
+    "ceremoniaDireccion",
+    BODA.ceremonia.direccion
+);
+
+
+/* =========================================================
+   MAPA CEREMONIA
+========================================================= */
+
+const ceremoniaMaps =
+    document.getElementById("ceremoniaMaps");
+
+
+if (BODA.ceremonia.maps) {
+
+    ceremoniaMaps.href =
+        BODA.ceremonia.maps;
+
+} else {
+
+    ceremoniaMaps.style.display =
+        "none";
+
+}
+
+
+/* =========================================================
+   RECEPCIÓN
+========================================================= */
+
+setText(
+    "recepcionNombre",
+    BODA.recepcion.nombre
+);
+
+setText(
+    "recepcionHora",
+    BODA.recepcion.hora
+);
+
+setText(
+    "recepcionLugar",
+    BODA.recepcion.lugar
+);
+
+setText(
+    "recepcionDireccion",
+    BODA.recepcion.direccion
+);
+
+
+/* =========================================================
+   MAPA RECEPCIÓN
+========================================================= */
+
+const recepcionMaps =
+    document.getElementById("recepcionMaps");
+
+
+if (BODA.recepcion.maps) {
+
+    recepcionMaps.href =
+        BODA.recepcion.maps;
+
+} else {
+
+    recepcionMaps.style.display =
+        "none";
+
+}
+
+
+/* =========================================================
+   INFORMACIÓN EXTRA
+========================================================= */
+
+setText(
+    "dressCode",
+    BODA.extras.dressCode
+);
+
+setText(
+    "regalos",
+    BODA.extras.regalos
+);
+
+setText(
+    "telefono",
+    BODA.extras.telefono
+);
+
+
+/* =========================================================
+   UBICACIÓN PRINCIPAL
+========================================================= */
+
+setText(
+    "lugarPrincipal",
+    BODA.ceremonia.lugar
+);
+
+setText(
+    "direccionPrincipal",
+    BODA.ceremonia.direccion
+);
+
+
+const mapsPrincipal =
+    document.getElementById("mapsPrincipal");
+
+
+if (BODA.ceremonia.maps) {
+
+    mapsPrincipal.href =
+        BODA.ceremonia.maps;
+
+} else {
+
+    mapsPrincipal.style.display =
+        "none";
+
+}
+
+
+/* =========================================================
+   WHATSAPP
+========================================================= */
+
+const whatsappButton =
+    document.getElementById("whatsappButton");
+
+
+const whatsappURL =
+    `https://wa.me/${BODA.whatsapp}?text=${encodeURIComponent(
+        BODA.mensajeWhatsapp
+    )}`;
+
+
+whatsappButton.href =
+    whatsappURL;
+
+
+/* =========================================================
    CUENTA REGRESIVA
-===================================================== */
+========================================================= */
 
-/*
-   FECHA DEL MATRIMONIO
-
-   27 de febrero de 2027
-   00:00 horas
-
-   Si posteriormente quieres poner una hora
-   específica, por ejemplo 18:00, cambia:
-
-   2027-02-27T00:00:00
-
-   por:
-
-   2027-02-27T18:00:00
-*/
-
-const weddingDate = new Date("2027-02-27T00:00:00").getTime();
+const weddingDate =
+    new Date(BODA.fechaEvento).getTime();
 
 
 function updateCountdown() {
 
-    const now = new Date().getTime();
+    const now =
+        new Date().getTime();
 
-    const difference = weddingDate - now;
+
+    const difference =
+        weddingDate - now;
 
 
     if (difference <= 0) {
 
-        document.getElementById("days").textContent = "0";
-        document.getElementById("hours").textContent = "0";
-        document.getElementById("minutes").textContent = "0";
-        document.getElementById("seconds").textContent = "0";
+        setText("days", "0");
+
+        setText("hours", "0");
+
+        setText("minutes", "0");
+
+        setText("seconds", "0");
 
         return;
+
     }
 
 
-    const days = Math.floor(
-        difference / (1000 * 60 * 60 * 24)
+    const days =
+        Math.floor(
+            difference /
+            (1000 * 60 * 60 * 24)
+        );
+
+
+    const hours =
+        Math.floor(
+            (difference %
+                (1000 * 60 * 60 * 24))
+            /
+            (1000 * 60 * 60)
+        );
+
+
+    const minutes =
+        Math.floor(
+            (difference %
+                (1000 * 60 * 60))
+            /
+            (1000 * 60)
+        );
+
+
+    const seconds =
+        Math.floor(
+            (difference %
+                (1000 * 60))
+            /
+            1000
+        );
+
+
+    setText(
+        "days",
+        days
     );
 
-
-    const hours = Math.floor(
-        (difference % (1000 * 60 * 60 * 24))
-        / (1000 * 60 * 60)
+    setText(
+        "hours",
+        String(hours).padStart(2, "0")
     );
 
-
-    const minutes = Math.floor(
-        (difference % (1000 * 60 * 60))
-        / (1000 * 60)
+    setText(
+        "minutes",
+        String(minutes).padStart(2, "0")
     );
 
-
-    const seconds = Math.floor(
-        (difference % (1000 * 60))
-        / 1000
+    setText(
+        "seconds",
+        String(seconds).padStart(2, "0")
     );
 
-
-    document.getElementById("days").textContent = days;
-
-    document.getElementById("hours").textContent =
-        String(hours).padStart(2, "0");
-
-    document.getElementById("minutes").textContent =
-        String(minutes).padStart(2, "0");
-
-    document.getElementById("seconds").textContent =
-        String(seconds).padStart(2, "0");
 }
 
 
 updateCountdown();
 
-setInterval(updateCountdown, 1000);
+setInterval(
+    updateCountdown,
+    1000
+);
 
 
+/* =========================================================
+   FOTOS DE PORTADA
+========================================================= */
 
-/* =====================================================
-   BOTÓN DE MÚSICA
-===================================================== */
-
-const musicButton = document.getElementById("musicButton");
-
-let musicPlaying = false;
+const hero =
+    document.querySelector(".hero");
 
 
-/*
-   Si posteriormente agregas música:
+if (
+    BODA.fotos &&
+    BODA.fotos.portada
+) {
 
-   1. Sube "musica.mp3" al repositorio.
-
-   2. En index.html activa:
-
-   <audio id="music" loop>
-       <source src="musica.mp3" type="audio/mpeg">
-   </audio>
-
-   3. Descomenta el código siguiente.
-*/
-
-
-const music = document.getElementById("music");
-
-
-if (music) {
-
-    musicButton.addEventListener("click", function () {
-
-        if (musicPlaying) {
-
-            music.pause();
-
-            musicButton.textContent = "♫";
-
-            musicPlaying = false;
-
-        } else {
-
-            music.play();
-
-            musicButton.textContent = "❚❚";
-
-            musicPlaying = true;
-
-        }
-
-    });
-
-} else {
-
-    /*
-       Mientras no exista música,
-       el botón simplemente muestra
-       que la función está disponible.
-    */
-
-    musicButton.addEventListener("click", function () {
-
-        alert(
-            "Puedes agregar tu música subiendo un archivo musica.mp3 al repositorio."
-        );
-
-    });
+    hero.style.backgroundImage =
+        `linear-gradient(
+            rgba(60, 47, 38, 0.42),
+            rgba(60, 47, 38, 0.42)
+        ),
+        url("${BODA.fotos.portada}")`;
 
 }
 
 
+/* =========================================================
+   FOTO FINAL
+========================================================= */
 
-/* =====================================================
-   ANIMACIÓN AL HACER SCROLL
-===================================================== */
+const finalSection =
+    document.querySelector(
+        ".final-section"
+    );
 
-const observer = new IntersectionObserver(
-    function (entries) {
 
-        entries.forEach(function (entry) {
+if (
+    BODA.fotos &&
+    BODA.fotos.final
+) {
 
-            if (entry.isIntersecting) {
+    finalSection.style.backgroundImage =
+        `linear-gradient(
+            rgba(55, 43, 34, 0.55),
+            rgba(55, 43, 34, 0.55)
+        ),
+        url("${BODA.fotos.final}")`;
 
-                entry.target.style.opacity = "1";
-                entry.target.style.transform = "translateY(0)";
+}
+
+
+/* =========================================================
+   ANIMACIONES
+========================================================= */
+
+const observer =
+    new IntersectionObserver(
+        function(entries) {
+
+            entries.forEach(
+                function(entry) {
+
+                    if (
+                        entry.isIntersecting
+                    ) {
+
+                        entry.target.style.opacity =
+                            "1";
+
+                        entry.target.style.transform =
+                            "translateY(0)";
+
+                    }
+
+                }
+            );
+
+        },
+        {
+            threshold: 0.15
+        }
+    );
+
+
+document
+    .querySelectorAll(
+        ".event-card, .extra-card, .location-card, .date-box, .count-box"
+    )
+    .forEach(
+        function(element) {
+
+            element.style.opacity =
+                "0";
+
+            element.style.transform =
+                "translateY(25px)";
+
+            element.style.transition =
+                "opacity 0.8s ease, transform 0.8s ease";
+
+            observer.observe(element);
+
+        }
+    );
+
+
+/* =========================================================
+   MÚSICA
+========================================================= */
+
+const musicButton =
+    document.getElementById(
+        "musicButton"
+    );
+
+
+const music =
+    document.getElementById(
+        "music"
+    );
+
+
+if (music) {
+
+    let playing = false;
+
+
+    musicButton.addEventListener(
+        "click",
+        function() {
+
+            if (playing) {
+
+                music.pause();
+
+                musicButton.textContent =
+                    "♫";
+
+                playing = false;
+
+            } else {
+
+                music.play();
+
+                musicButton.textContent =
+                    "❚❚";
+
+                playing = true;
 
             }
 
-        });
+        }
+    );
 
-    },
-    {
-        threshold: 0.15
-    }
-);
+} else {
 
+    musicButton.style.display =
+        "none";
 
-document.querySelectorAll(
-    ".event-card, .location-card, .date-box, .count-box"
-).forEach(function (element) {
-
-    element.style.opacity = "0";
-
-    element.style.transform = "translateY(25px)";
-
-    element.style.transition =
-        "opacity 0.8s ease, transform 0.8s ease";
-
-    observer.observe(element);
-
-});
+}
