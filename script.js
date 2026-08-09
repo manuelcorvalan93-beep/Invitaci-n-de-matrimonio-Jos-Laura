@@ -4,15 +4,7 @@
 
 
 /* =========================================================
-   DATOS PRINCIPALES
-========================================================= */
-
-document.title =
-    `${BODA.novio} & ${BODA.novia} | ${BODA.fechaTexto}`;
-
-
-/* =========================================================
-   FUNCIÓN AUXILIAR
+   FUNCIÓN PARA CAMBIAR TEXTOS
 ========================================================= */
 
 function setText(id, value) {
@@ -20,7 +12,11 @@ function setText(id, value) {
     const element =
         document.getElementById(id);
 
-    if (element && value !== undefined) {
+    if (
+        element &&
+        value !== undefined &&
+        value !== null
+    ) {
 
         element.textContent = value;
 
@@ -30,20 +26,46 @@ function setText(id, value) {
 
 
 /* =========================================================
+   TÍTULO DE LA PÁGINA
+========================================================= */
+
+document.title =
+    `${BODA.novio} & ${BODA.novia} | ${BODA.fechaTexto}`;
+
+
+/* =========================================================
    NOMBRES
 ========================================================= */
 
-setText("novio", BODA.novio);
+setText(
+    "novio",
+    BODA.novio
+);
 
-setText("novia", BODA.novia);
+setText(
+    "novia",
+    BODA.novia
+);
 
-setText("novioFinal", BODA.novio);
+setText(
+    "novioFinal",
+    BODA.novio
+);
 
-setText("noviaFinal", BODA.novia);
+setText(
+    "noviaFinal",
+    BODA.novia
+);
 
-setText("footerNovio", BODA.novio);
+setText(
+    "footerNovio",
+    BODA.novio
+);
 
-setText("footerNovia", BODA.novia);
+setText(
+    "footerNovia",
+    BODA.novia
+);
 
 
 /* =========================================================
@@ -96,6 +118,11 @@ setText(
 );
 
 setText(
+    "historia",
+    BODA.textos.historia
+);
+
+setText(
     "confirmacion",
     BODA.textos.confirmacion
 );
@@ -136,7 +163,9 @@ setText(
 ========================================================= */
 
 const ceremoniaMaps =
-    document.getElementById("ceremoniaMaps");
+    document.getElementById(
+        "ceremoniaMaps"
+    );
 
 
 if (BODA.ceremonia.maps) {
@@ -182,7 +211,9 @@ setText(
 ========================================================= */
 
 const recepcionMaps =
-    document.getElementById("recepcionMaps");
+    document.getElementById(
+        "recepcionMaps"
+    );
 
 
 if (BODA.recepcion.maps) {
@@ -234,7 +265,9 @@ setText(
 
 
 const mapsPrincipal =
-    document.getElementById("mapsPrincipal");
+    document.getElementById(
+        "mapsPrincipal"
+    );
 
 
 if (BODA.ceremonia.maps) {
@@ -255,13 +288,17 @@ if (BODA.ceremonia.maps) {
 ========================================================= */
 
 const whatsappButton =
-    document.getElementById("whatsappButton");
+    document.getElementById(
+        "whatsappButton"
+    );
 
 
 const whatsappURL =
-    `https://wa.me/${BODA.whatsapp}?text=${encodeURIComponent(
-        BODA.mensajeWhatsapp
-    )}`;
+    `https://wa.me/${BODA.whatsapp}?text=${
+        encodeURIComponent(
+            BODA.mensajeWhatsapp
+        )
+    }`;
 
 
 whatsappButton.href =
@@ -269,11 +306,115 @@ whatsappButton.href =
 
 
 /* =========================================================
+   FOTOS
+========================================================= */
+
+function cargarFoto(id, ruta) {
+
+    const imagen =
+        document.getElementById(id);
+
+    if (!imagen) return;
+
+
+    if (ruta) {
+
+        imagen.src = ruta;
+
+    } else {
+
+        imagen.parentElement.style.display =
+            "none";
+
+    }
+
+}
+
+
+cargarFoto(
+    "foto1",
+    BODA.fotos.foto1
+);
+
+cargarFoto(
+    "foto2",
+    BODA.fotos.foto2
+);
+
+cargarFoto(
+    "foto3",
+    BODA.fotos.foto3
+);
+
+cargarFoto(
+    "foto4",
+    BODA.fotos.foto4
+);
+
+cargarFoto(
+    "foto5",
+    BODA.fotos.foto5
+);
+
+
+/* =========================================================
+   PORTADA
+========================================================= */
+
+const hero =
+    document.querySelector(
+        ".hero"
+    );
+
+
+if (
+    BODA.fotos &&
+    BODA.fotos.portada
+) {
+
+    hero.style.backgroundImage =
+        `linear-gradient(
+            rgba(60,47,38,.42),
+            rgba(60,47,38,.42)
+        ),
+        url("${BODA.fotos.portada}")`;
+
+}
+
+
+/* =========================================================
+   FOTO FINAL
+========================================================= */
+
+const finalSection =
+    document.querySelector(
+        ".final-section"
+    );
+
+
+if (
+    BODA.fotos &&
+    BODA.fotos.final
+) {
+
+    finalSection.style.backgroundImage =
+        `linear-gradient(
+            rgba(55,43,34,.55),
+            rgba(55,43,34,.55)
+        ),
+        url("${BODA.fotos.final}")`;
+
+}
+
+
+/* =========================================================
    CUENTA REGRESIVA
 ========================================================= */
 
 const weddingDate =
-    new Date(BODA.fechaEvento).getTime();
+    new Date(
+        BODA.fechaEvento
+    ).getTime();
 
 
 function updateCountdown() {
@@ -367,59 +508,110 @@ setInterval(
 
 
 /* =========================================================
-   FOTOS DE PORTADA
+   🎵 MÚSICA
 ========================================================= */
 
-const hero =
-    document.querySelector(".hero");
+const music =
+    document.getElementById(
+        "music"
+    );
 
 
-if (
-    BODA.fotos &&
-    BODA.fotos.portada
-) {
-
-    hero.style.backgroundImage =
-        `linear-gradient(
-            rgba(60, 47, 38, 0.42),
-            rgba(60, 47, 38, 0.42)
-        ),
-        url("${BODA.fotos.portada}")`;
-
-}
-
-
-/* =========================================================
-   FOTO FINAL
-========================================================= */
-
-const finalSection =
-    document.querySelector(
-        ".final-section"
+const musicButton =
+    document.getElementById(
+        "musicButton"
     );
 
 
 if (
-    BODA.fotos &&
-    BODA.fotos.final
+    music &&
+    BODA.musica &&
+    BODA.musica.archivo
 ) {
 
-    finalSection.style.backgroundImage =
-        `linear-gradient(
-            rgba(55, 43, 34, 0.55),
-            rgba(55, 43, 34, 0.55)
-        ),
-        url("${BODA.fotos.final}")`;
+    music.src =
+        BODA.musica.archivo;
+
+
+    musicButton.title =
+        BODA.musica.titulo;
+
+
+    let playing = false;
+
+
+    musicButton.addEventListener(
+        "click",
+        function() {
+
+
+            if (playing) {
+
+                music.pause();
+
+                musicButton.textContent =
+                    "🎵";
+
+                playing = false;
+
+
+            } else {
+
+                music.play()
+                    .then(
+                        function() {
+
+                            musicButton.textContent =
+                                "⏸";
+
+                            playing = true;
+
+                        }
+                    )
+                    .catch(
+                        function() {
+
+                            alert(
+                                "Presiona nuevamente el botón para reproducir la música."
+                            );
+
+                        }
+                    );
+
+            }
+
+        }
+    );
+
+
+    music.addEventListener(
+        "ended",
+        function() {
+
+            musicButton.textContent =
+                "🎵";
+
+            playing = false;
+
+        }
+    );
+
+
+} else {
+
+    musicButton.style.display =
+        "none";
 
 }
 
 
 /* =========================================================
-   ANIMACIONES
+   ANIMACIONES AL HACER SCROLL
 ========================================================= */
 
 const observer =
     new IntersectionObserver(
+
         function(entries) {
 
             entries.forEach(
@@ -441,17 +633,20 @@ const observer =
             );
 
         },
+
         {
             threshold: 0.15
         }
+
     );
 
 
 document
     .querySelectorAll(
-        ".event-card, .extra-card, .location-card, .date-box, .count-box"
+        ".event-card, .extra-card, .location-card, .date-box, .count-box, .photo"
     )
     .forEach(
+
         function(element) {
 
             element.style.opacity =
@@ -461,65 +656,12 @@ document
                 "translateY(25px)";
 
             element.style.transition =
-                "opacity 0.8s ease, transform 0.8s ease";
+                "opacity .8s ease, transform .8s ease";
 
-            observer.observe(element);
-
-        }
-    );
-
-
-/* =========================================================
-   MÚSICA
-========================================================= */
-
-const musicButton =
-    document.getElementById(
-        "musicButton"
-    );
-
-
-const music =
-    document.getElementById(
-        "music"
-    );
-
-
-if (music) {
-
-    let playing = false;
-
-
-    musicButton.addEventListener(
-        "click",
-        function() {
-
-            if (playing) {
-
-                music.pause();
-
-                musicButton.textContent =
-                    "♫";
-
-                playing = false;
-
-            } else {
-
-                music.play();
-
-                musicButton.textContent =
-                    "❚❚";
-
-                playing = true;
-
-            }
+            observer.observe(
+                element
+            );
 
         }
+
     );
-
-} else {
-
-    musicButton.style.display =
-        "none";
-
-}
