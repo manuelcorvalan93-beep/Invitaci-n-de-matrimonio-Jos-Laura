@@ -120,11 +120,11 @@ const BODA = {
 
     fotos: {
 
-        portada: "_MG_6280.jpg",
+        portada: "foto1.jpg",
 
-        foto1: "_MG_6280.jpg",
+        foto1: "foto2",
 
-        foto2: "_MG_6280.jpg",
+        foto2: "foto2.jpg",
 
         foto3: "_MG_6280.jpg",
 
