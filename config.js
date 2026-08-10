@@ -143,9 +143,9 @@ const BODA = {
 
     musica: {
 
-        archivo: "Coqueta (Remix).mp3",
+        archivo: "Veo en ti la luz.mp3",
 
-        titulo: "Coqueta (Remix)"
+        titulo: "Veo en ti la luz"
 
     }
 
