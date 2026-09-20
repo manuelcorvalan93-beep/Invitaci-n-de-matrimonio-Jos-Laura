@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
 
     console.log("=================================");
-    console.log("💍 INVITACIÓN JOSÉ & LAURA");
+    console.log("💍 INVITACIÓN LAURA & JOSÉ");
     console.log("=================================");
 
 
@@ -44,17 +44,17 @@ document.addEventListener("DOMContentLoaded", function () {
     // NOMBRES
     // =====================================================
 
-    texto("novio", BODA.novio);
-    texto("novia", BODA.novia);
+    texto("novio", BODA.novia);
+    texto("novia", BODA.novio);
 
-    texto("welcomeNovio", BODA.novio);
-    texto("welcomeNovia", BODA.novia);
+    texto("welcomeNovio", BODA.novia);
+    texto("welcomeNovia", BODA.novio);
 
-    texto("novioFinal", BODA.novio);
-    texto("noviaFinal", BODA.novia);
+    texto("novioFinal", BODA.novia);
+    texto("noviaFinal", BODA.novio);
 
-    texto("footerNovio", BODA.novio);
-    texto("footerNovia", BODA.novia);
+    texto("footerNovio", BODA.novia);
+    texto("footerNovia", BODA.novio);
 
 
     // =====================================================
@@ -138,9 +138,9 @@ document.addEventListener("DOMContentLoaded", function () {
             portada.src = BODA.fotos.portada;
 
             portada.alt =
-                BODA.novio +
+                BODA.novia +
                 " y " +
-                BODA.novia;
+                BODA.novio;
 
         }
 
