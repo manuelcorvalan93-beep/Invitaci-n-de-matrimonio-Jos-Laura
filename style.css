@@ -2169,25 +2169,30 @@ body.bubbles-active #bubbles-container {
     position: absolute;
     left: var(--bubble-left);
     bottom: -70px;
+
     width: var(--bubble-size);
     height: var(--bubble-size);
+
     border-radius: 50%;
 
+    /* Interior transparente con ligero tono dorado */
     background:
         radial-gradient(
             circle at 30% 25%,
-            rgba(255,255,255,.90) 0%,
-            rgba(255,255,255,.45) 10%,
-            rgba(255,255,255,.16) 30%,
-            rgba(255,255,255,.05) 60%,
-            rgba(255,255,255,0) 78%
+            rgba(255,255,255,.95) 0%,
+            rgba(255,255,255,.30) 12%,
+            rgba(214,190,145,.18) 45%,
+            rgba(255,255,255,0) 75%
         );
 
-    border: 1px solid rgba(255,255,255,.50);
+    /* Borde visible sobre fondos blancos */
+    border: 2px solid rgba(179,154,107,.9);
 
+    /* Brillo exterior */
     box-shadow:
-        inset 0 0 12px rgba(255,255,255,.25),
-        0 0 12px rgba(255,255,255,.15);
+        0 0 5px rgba(179,154,107,.55),
+        0 0 12px rgba(255,255,255,.45),
+        inset 0 0 8px rgba(255,255,255,.55);
 
     opacity: 0;
 
@@ -2201,15 +2206,26 @@ body.bubbles-active #bubbles-container {
     will-change: transform, opacity;
 }
 
+
+/* Brillo de la burbuja */
 .floating-bubble::after {
     content: "";
+
     position: absolute;
+
     width: 24%;
     height: 24%;
+
     top: 17%;
     left: 21%;
+
     border-radius: 50%;
-    background: rgba(255,255,255,.85);
+
+    background: rgba(255,255,255,.95);
+
+    box-shadow:
+        0 0 5px rgba(255,255,255,.9);
+
     filter: blur(1px);
 }
 
