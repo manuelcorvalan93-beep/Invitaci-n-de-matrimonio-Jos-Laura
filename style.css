@@ -2143,3 +2143,143 @@ footer {
     }
 
 }
+/* =====================================================
+   BURBUJAS FLOTANTES - JOSÉ & LAURA
+===================================================== */
+
+#bubbles-container {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1.5s ease, visibility 1.5s ease;
+}
+
+body.bubbles-active #bubbles-container {
+    opacity: 1;
+    visibility: visible;
+}
+
+.floating-bubble {
+    position: absolute;
+    left: var(--bubble-left);
+    bottom: -70px;
+    width: var(--bubble-size);
+    height: var(--bubble-size);
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 30% 25%,
+            rgba(255,255,255,.90) 0%,
+            rgba(255,255,255,.45) 10%,
+            rgba(255,255,255,.16) 30%,
+            rgba(255,255,255,.05) 60%,
+            rgba(255,255,255,0) 78%
+        );
+
+    border: 1px solid rgba(255,255,255,.50);
+
+    box-shadow:
+        inset 0 0 12px rgba(255,255,255,.25),
+        0 0 12px rgba(255,255,255,.15);
+
+    opacity: 0;
+
+    animation:
+        bubbleFloat
+        var(--bubble-duration)
+        linear
+        var(--bubble-delay)
+        infinite;
+
+    will-change: transform, opacity;
+}
+
+.floating-bubble::after {
+    content: "";
+    position: absolute;
+    width: 24%;
+    height: 24%;
+    top: 17%;
+    left: 21%;
+    border-radius: 50%;
+    background: rgba(255,255,255,.85);
+    filter: blur(1px);
+}
+
+@keyframes bubbleFloat {
+
+    0% {
+        opacity: 0;
+        transform:
+            translate3d(0, 0, 0)
+            scale(.65);
+    }
+
+    10% {
+        opacity: var(--bubble-opacity);
+    }
+
+    30% {
+        transform:
+            translate3d(
+                var(--bubble-x1),
+                -30vh,
+                0
+            )
+            scale(.85);
+    }
+
+    50% {
+        transform:
+            translate3d(
+                var(--bubble-x2),
+                -55vh,
+                0
+            )
+            scale(1);
+    }
+
+    75% {
+        transform:
+            translate3d(
+                var(--bubble-x3),
+                -85vh,
+                0
+            )
+            scale(.92);
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+            translate3d(
+                var(--bubble-x4),
+                -125vh,
+                0
+            )
+            scale(.75);
+    }
+}
+
+@media (max-width: 700px) {
+
+    #bubbles-container {
+        opacity: .85;
+    }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    #bubbles-container {
+        display: none;
+    }
+
+}
