@@ -4,8 +4,8 @@ const BODA = {
     // NOVIOS
     // ==========================================
 
-     novia: "José",
-     novio: "Laura",
+     novia: "Laura",
+     novio: "José",
    
 
 
