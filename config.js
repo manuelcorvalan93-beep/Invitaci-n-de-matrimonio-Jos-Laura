@@ -4,8 +4,9 @@ const BODA = {
     // NOVIOS
     // ==========================================
 
-    novio: "José",
-    novia: "Laura",
+     novia: "Laura",
+     novio: "José",
+   
 
 
     // ==========================================
@@ -16,7 +17,7 @@ const BODA = {
 
     fechaCorta: "27 · 02 · 2027",
 
-    fechaEvento: "2027-02-27T18:00:00",
+    fechaEvento: "2027-02-27T12:00:00",
 
 
     // ==========================================
@@ -26,7 +27,7 @@ const BODA = {
     whatsapp: "56953009921",
 
     mensajeWhatsapp:
-        "Hola José y Laura, quiero confirmar mi asistencia a su matrimonio del 27 de febrero de 2027.",
+        "Hola Laura y José, quiero confirmar mi asistencia a su matrimonio del 27 de febrero de 2027.",
 
 
     // ==========================================
@@ -37,7 +38,7 @@ const BODA = {
 
         nombre: "Ceremonia",
 
-        hora: "Por confirmar",
+        hora: "12:00",
 
         lugar: "Lugar de la ceremonia",
 
@@ -56,7 +57,7 @@ const BODA = {
 
         nombre: "Celebración",
 
-        hora: "Por confirmar",
+        hora: "13:30",
 
         lugar: "Lugar de la celebración",
 
