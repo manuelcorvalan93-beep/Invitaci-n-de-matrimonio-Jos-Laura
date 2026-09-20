@@ -729,3 +729,145 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
 });
+// =====================================================
+// BURBUJAS FLOTANTES - JOSÉ & LAURA
+// =====================================================
+
+function crearBurbujas() {
+
+    const container =
+        document.getElementById("bubbles-container");
+
+    if (!container) {
+        console.warn(
+            "⚠️ No se encontró #bubbles-container"
+        );
+        return;
+    }
+
+    if (container.dataset.started === "true") {
+        return;
+    }
+
+    container.dataset.started = "true";
+
+    function crearBurbuja() {
+
+        const bubble =
+            document.createElement("div");
+
+        bubble.className =
+            "floating-bubble";
+
+        bubble.style.setProperty(
+            "--bubble-left",
+            Math.random() * 100 + "%"
+        );
+
+        const size =
+            Math.random() * 35 + 10;
+
+        bubble.style.setProperty(
+            "--bubble-size",
+            size + "px"
+        );
+
+        const duration =
+            Math.random() * 10 + 10;
+
+        bubble.style.setProperty(
+            "--bubble-duration",
+            duration + "s"
+        );
+
+        bubble.style.setProperty(
+            "--bubble-delay",
+            Math.random() * 2 + "s"
+        );
+
+        const opacity =
+            Math.random() * .35 + .25;
+
+        bubble.style.setProperty(
+            "--bubble-opacity",
+            opacity
+        );
+
+        bubble.style.setProperty(
+            "--bubble-x1",
+            (Math.random() * 80 - 40) + "px"
+        );
+
+        bubble.style.setProperty(
+            "--bubble-x2",
+            (Math.random() * 120 - 60) + "px"
+        );
+
+        bubble.style.setProperty(
+            "--bubble-x3",
+            (Math.random() * 160 - 80) + "px"
+        );
+
+        bubble.style.setProperty(
+            "--bubble-x4",
+            (Math.random() * 200 - 100) + "px"
+        );
+
+        container.appendChild(bubble);
+
+        bubble.addEventListener(
+            "animationend",
+            function () {
+                bubble.remove();
+            }
+        );
+    }
+
+    const cantidadInicial =
+        window.innerWidth <= 700
+            ? 8
+            : 14;
+
+    for (
+        let i = 0;
+        i < cantidadInicial;
+        i++
+    ) {
+        setTimeout(
+            crearBurbuja,
+            i * 300
+        );
+    }
+
+    setInterval(
+        crearBurbuja,
+        window.innerWidth <= 700
+            ? 1200
+            : 850
+    );
+}
+
+
+// =====================================================
+// ACTIVAR BURBUJAS AL ABRIR LA INVITACIÓN
+// =====================================================
+
+const botonBurbujas =
+    document.getElementById("openInvitation");
+
+if (botonBurbujas) {
+
+    botonBurbujas.addEventListener(
+        "click",
+        function () {
+
+            document.body.classList.add(
+                "bubbles-active"
+            );
+
+            crearBurbujas();
+
+        }
+    );
+
+}
