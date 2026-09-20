@@ -329,7 +329,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const mensaje =
             BODA.mensajeWhatsapp ||
-            "Hola José y Laura, quiero confirmar mi asistencia.";
+            "Hola Laura y José, quiero confirmar mi asistencia.";
 
 
         const whatsappURL =
