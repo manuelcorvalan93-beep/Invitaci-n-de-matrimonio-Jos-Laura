@@ -112,13 +112,21 @@ Lo más importante para nosotros es poder compartir este día tan especial junto
 
 Si además desean hacernos un obsequio, lo recibiremos con mucho cariño y gratitud. Para quienes prefieran hacerlo mediante transferencia, dejamos nuestros datos:
 
+
 **Transferencia bancaria**
+
 Laura Daniela Urrutia Maldonado
+
 RUT: 202670334
+
 Mercado Pago
+
 Cuenta Vista
+
 Número de cuenta: 1092911078
-[laura.urrutia0207@gmail.com](mailto:laura.urrutia0207@gmail.com)
+
+laura.urrutia0207@gmail.com
+
 
 Y si prefieren entregarlo personalmente, en la recepción encontrarán **sobres y un baúl**, donde podrán dejarnos su obsequio o unas palabras y buenos deseos para nosotros.
 
