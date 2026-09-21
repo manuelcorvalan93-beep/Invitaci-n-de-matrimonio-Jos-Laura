@@ -104,7 +104,7 @@ const BODA = {
 
 extras: {
 
-    dressCode: "Elegante",
+    dressCode: "Elegante ✨. El blanco y el negro están reservados para los novios. 💜",
 
     regalos: `**Tu presencia es nuestro mejor regalo.** 💜
 
