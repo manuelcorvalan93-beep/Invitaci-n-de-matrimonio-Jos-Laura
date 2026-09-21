@@ -124,8 +124,7 @@ Número de cuenta: 1092911078
 Y si prefieren entregarlo personalmente, en la recepción encontrarán **sobres y un baúl**, donde podrán dejarnos su obsequio o unas palabras y buenos deseos para nosotros.
 
 **Gracias por ser parte de este momento tan especial.**
-Su cariño, compañía y buenos deseos significan muchísimo para nosotros. 💜✨
-.",
+Su cariño, compañía y buenos deseos significan muchísimo para nosotros. 💜✨",
 
         telefono:
             "+56 9 5300 9921"
