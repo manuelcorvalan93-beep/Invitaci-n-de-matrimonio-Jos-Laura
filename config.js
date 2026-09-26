@@ -147,17 +147,17 @@ Su cariño, compañía y buenos deseos significan muchísimo para nosotros. 💜
 
         portada: "foto1.jpg",
 
-        foto1: "foto2.jpg",
+        foto1: "foto2.jpeg",
 
-        foto2: "foto3.jpg",
+        foto2: "foto3.jpeg",
 
-        foto3: "foto4.jpg",
+        foto3: "foto4.jpeg",
 
-        foto4: "foto5.jpg",
+        foto4: "foto5.jpeg",
 
-        foto5: "foto6.jpg",
+        foto5: "foto6.jpeg",
 
-        final: "foto7.jpg"
+        final: "foto7.jpeg"
 
     },
 
