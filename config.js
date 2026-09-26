@@ -4,9 +4,8 @@ const BODA = {
     // NOVIOS
     // ==========================================
 
-     novia: "Laura",
-     novio: "José",
-   
+    novia: "Laura",
+    novio: "José",
 
 
     // ==========================================
@@ -102,41 +101,38 @@ const BODA = {
     // INFORMACIÓN
     // ==========================================
 
-extras: {
+    extras: {
 
-    dressCode: "Elegante ✨. El blanco y el negro están reservados para los novios. 💜",
+        dressCode:
+            "Elegante ✨. El blanco y el negro están reservados para los novios. 💜",
 
-    regalos: `**Tu presencia es nuestro mejor regalo.** 💜
+        regalos:
+            "Tu presencia es nuestro mejor regalo. 💜\n\n" +
 
-Lo más importante para nosotros es poder compartir este día tan especial junto a las personas que queremos y que nos acompañen a comenzar esta nueva etapa de nuestras vidas.
+            "Lo más importante para nosotros es poder compartir este día tan especial junto a las personas que queremos y que nos acompañen a comenzar esta nueva etapa de nuestras vidas.\n\n" +
 
-Si además desean hacernos un obsequio, lo recibiremos con mucho cariño y gratitud. Para quienes prefieran hacerlo mediante transferencia, dejamos nuestros datos:
+            "Si además desean hacernos un obsequio, lo recibiremos con mucho cariño y gratitud.\n\n" +
 
+            "💜 Si prefieren realizar una transferencia:\n\n" +
 
-**Transferencia bancaria**
+            "Laura Daniela Urrutia Maldonado\n" +
+            "RUT: 202670334\n" +
+            "Mercado Pago · Cuenta Vista\n" +
+            "N.º de cuenta: 1092911078\n" +
+            "laura.urrutia0207@gmail.com\n\n" +
 
-Laura Daniela Urrutia Maldonado
+            "🎁 Si prefieren entregarlo personalmente:\n\n" +
 
-RUT: 202670334
+            "En la recepción encontrarán sobres y un baúl, donde podrán dejarnos su obsequio o unas palabras y buenos deseos para nosotros.\n\n" +
 
-Mercado Pago
+            "Gracias por ser parte de este momento tan especial. 💜\n\n" +
 
-Cuenta Vista
+            "Su cariño, compañía y buenos deseos significan muchísimo para nosotros. ✨",
 
-Número de cuenta: 1092911078
+        telefono:
+            "+56 9 5300 9921"
 
-laura.urrutia0207@gmail.com
-
-
-Y si prefieren entregarlo personalmente, en la recepción encontrarán **sobres y un baúl**, donde podrán dejarnos su obsequio o unas palabras y buenos deseos para nosotros.
-
-**Gracias por ser parte de este momento tan especial.**
-Su cariño, compañía y buenos deseos significan muchísimo para nosotros. 💜✨`,
-
-    telefono:
-        "+56 9 5300 9921"
-
-},
+    },
 
 
     // ==========================================
