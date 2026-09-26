@@ -149,15 +149,15 @@ Su cariño, compañía y buenos deseos significan muchísimo para nosotros. 💜
 
         foto1: "foto2.jpg",
 
-        foto2: "foto2.jpg",
+        foto2: "foto3.jpg",
 
-        foto3: "_MG_6280.jpg",
+        foto3: "foto4.jpg",
 
-        foto4: "_MG_6280.jpg",
+        foto4: "foto5.jpg",
 
-        foto5: "_MG_6280.jpg",
+        foto5: "foto6.jpg",
 
-        final: "_MG_6280.jpg"
+        final: "foto7.jpg"
 
     },
 
