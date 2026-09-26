@@ -44,17 +44,18 @@ document.addEventListener("DOMContentLoaded", function () {
     // NOMBRES
     // =====================================================
 
-    texto("novio", BODA.novia);
-    texto("novia", BODA.novio);
+    // LAURA SIEMPRE PRIMERO
+    texto("novia", BODA.novia);
+    texto("welcomeNovia", BODA.novia);
+    texto("noviaFinal", BODA.novia);
+    texto("footerNovia", BODA.novia);
 
-    texto("welcomeNovio", BODA.novia);
-    texto("welcomeNovia", BODA.novio);
 
-    texto("novioFinal", BODA.novia);
-    texto("noviaFinal", BODA.novio);
-
-    texto("footerNovio", BODA.novia);
-    texto("footerNovia", BODA.novio);
+    // JOSÉ SIEMPRE SEGUNDO
+    texto("novio", BODA.novio);
+    texto("welcomeNovio", BODA.novio);
+    texto("novioFinal", BODA.novio);
+    texto("footerNovio", BODA.novio);
 
 
     // =====================================================
@@ -74,19 +75,40 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (BODA.textos) {
 
-        texto("bienvenida", BODA.textos.bienvenida);
+        texto(
+            "bienvenida",
+            BODA.textos.bienvenida
+        );
 
-        texto("invitacionTexto", BODA.textos.invitacion);
+        texto(
+            "invitacionTexto",
+            BODA.textos.invitacion
+        );
 
-        texto("invitacionTexto2", BODA.textos.invitacion2);
+        texto(
+            "invitacionTexto2",
+            BODA.textos.invitacion2
+        );
 
-        texto("frase", BODA.textos.frase);
+        texto(
+            "frase",
+            BODA.textos.frase
+        );
 
-        texto("historia", BODA.textos.historia);
+        texto(
+            "historia",
+            BODA.textos.historia
+        );
 
-        texto("confirmacion", BODA.textos.confirmacion);
+        texto(
+            "confirmacion",
+            BODA.textos.confirmacion
+        );
 
-        texto("mensajeFinal", BODA.textos.mensajeFinal);
+        texto(
+            "mensajeFinal",
+            BODA.textos.mensajeFinal
+        );
 
     }
 
@@ -97,11 +119,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function cargarFoto(id, archivo) {
 
-        const img = document.getElementById(id);
+        const img =
+            document.getElementById(id);
 
         if (!img || !archivo) {
             return;
         }
+
+        console.log(
+            "🖼️ Cargando foto:",
+            archivo
+        );
 
         img.src = archivo;
 
@@ -119,15 +147,36 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (BODA.fotos) {
 
-        cargarFoto("foto1", BODA.fotos.foto1);
-        cargarFoto("foto2", BODA.fotos.foto2);
-        cargarFoto("foto3", BODA.fotos.foto3);
-        cargarFoto("foto4", BODA.fotos.foto4);
-        cargarFoto("foto5", BODA.fotos.foto5);
+        cargarFoto(
+            "foto1",
+            BODA.fotos.foto1
+        );
+
+        cargarFoto(
+            "foto2",
+            BODA.fotos.foto2
+        );
+
+        cargarFoto(
+            "foto3",
+            BODA.fotos.foto3
+        );
+
+        cargarFoto(
+            "foto4",
+            BODA.fotos.foto4
+        );
+
+        cargarFoto(
+            "foto5",
+            BODA.fotos.foto5
+        );
 
 
         const portada =
-            document.querySelector(".couple-photo img");
+            document.querySelector(
+                ".couple-photo img"
+            );
 
 
         if (
@@ -135,11 +184,12 @@ document.addEventListener("DOMContentLoaded", function () {
             BODA.fotos.portada
         ) {
 
-            portada.src = BODA.fotos.portada;
+            portada.src =
+                BODA.fotos.portada;
 
             portada.alt =
                 BODA.novia +
-                " y " +
+                " & " +
                 BODA.novio;
 
         }
@@ -175,7 +225,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         const mapa =
-            document.getElementById("ceremoniaMaps");
+            document.getElementById(
+                "ceremoniaMaps"
+            );
 
 
         if (mapa) {
@@ -239,7 +291,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         const mapa =
-            document.getElementById("recepcionMaps");
+            document.getElementById(
+                "recepcionMaps"
+            );
 
 
         if (mapa) {
@@ -263,7 +317,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         const mapaPrincipal =
-            document.getElementById("mapsPrincipal");
+            document.getElementById(
+                "mapsPrincipal"
+            );
 
 
         if (mapaPrincipal) {
@@ -339,17 +395,15 @@ document.addEventListener("DOMContentLoaded", function () {
             encodeURIComponent(mensaje);
 
 
-        // Dejamos el enlace listo inmediatamente.
-
         whatsappButton.href =
             whatsappURL;
 
 
-        // Al tocarlo se redirige directamente.
-
         whatsappButton.addEventListener(
             "click",
-            function () {
+            function (evento) {
+
+                evento.preventDefault();
 
                 window.location.href =
                     whatsappURL;
@@ -392,12 +446,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (diferencia <= 0) {
 
-            texto("daysRemaining", "0");
+            texto(
+                "daysRemaining",
+                "0"
+            );
 
-            texto("days", "0");
-            texto("hours", "0");
-            texto("minutes", "0");
-            texto("seconds", "0");
+            texto(
+                "days",
+                "0"
+            );
+
+            texto(
+                "hours",
+                "0"
+            );
+
+            texto(
+                "minutes",
+                "0"
+            );
+
+            texto(
+                "seconds",
+                "0"
+            );
 
             return;
 
@@ -457,7 +529,9 @@ document.addEventListener("DOMContentLoaded", function () {
             );
 
 
-        // Contador principal
+        // -----------------------------------------
+        // CONTADOR PRINCIPAL
+        // -----------------------------------------
 
         texto(
             "days",
@@ -466,21 +540,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
         texto(
             "hours",
-            String(horas).padStart(2, "0")
+            String(horas).padStart(
+                2,
+                "0"
+            )
         );
 
         texto(
             "minutes",
-            String(minutos).padStart(2, "0")
+            String(minutos).padStart(
+                2,
+                "0"
+            )
         );
 
         texto(
             "seconds",
-            String(segundos).padStart(2, "0")
+            String(segundos).padStart(
+                2,
+                "0"
+            )
         );
 
 
-        // Contador grande de días
+        // -----------------------------------------
+        // CONTADOR GRANDE DE DÍAS
+        // -----------------------------------------
 
         texto(
             "daysRemaining",
@@ -521,13 +606,17 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
 
-    if (boton && pantalla) {
+    if (
+        boton &&
+        pantalla
+    ) {
 
         boton.addEventListener(
             "click",
             function (evento) {
 
                 evento.preventDefault();
+
 
                 console.log(
                     "❤️ Abriendo invitación..."
@@ -538,7 +627,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 // OCULTAR PORTADA
                 // -----------------------------------------
 
-                pantalla.classList.add("hide");
+                pantalla.classList.add(
+                    "hide"
+                );
 
 
                 // -----------------------------------------
@@ -558,13 +649,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     audio.volume = 0.8;
 
+
                     const reproduccion =
                         audio.play();
 
 
                     if (
                         reproduccion &&
-                        typeof reproduccion.catch === "function"
+                        typeof reproduccion.catch ===
+                        "function"
                     ) {
 
                         reproduccion.catch(
@@ -623,7 +716,9 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
 
-    if ("IntersectionObserver" in window) {
+    if (
+        "IntersectionObserver" in window
+    ) {
 
         const observer =
             new IntersectionObserver(
@@ -698,6 +793,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         );
 
+
         audio.addEventListener(
             "canplay",
             function () {
@@ -725,119 +821,173 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
     console.log(
+        "👰 Laura & José"
+    );
+
+    console.log(
         "================================="
     );
 
 });
+
+
 // =====================================================
-// BURBUJAS FLOTANTES - JOSÉ & LAURA
+// BURBUJAS FLOTANTES - LAURA & JOSÉ
 // =====================================================
 
 function crearBurbujas() {
 
     const container =
-        document.getElementById("bubbles-container");
+        document.getElementById(
+            "bubbles-container"
+        );
+
 
     if (!container) {
+
         console.warn(
             "⚠️ No se encontró #bubbles-container"
         );
+
         return;
     }
 
-    if (container.dataset.started === "true") {
+
+    if (
+        container.dataset.started ===
+        "true"
+    ) {
+
         return;
     }
 
-    container.dataset.started = "true";
+
+    container.dataset.started =
+        "true";
+
 
     function crearBurbuja() {
 
         const bubble =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
+
 
         bubble.className =
             "floating-bubble";
+
 
         bubble.style.setProperty(
             "--bubble-left",
             Math.random() * 100 + "%"
         );
 
+
         const size =
             Math.random() * 35 + 10;
+
 
         bubble.style.setProperty(
             "--bubble-size",
             size + "px"
         );
 
+
         const duration =
             Math.random() * 10 + 10;
+
 
         bubble.style.setProperty(
             "--bubble-duration",
             duration + "s"
         );
 
+
         bubble.style.setProperty(
             "--bubble-delay",
             Math.random() * 2 + "s"
         );
 
+
         const opacity =
-            Math.random() * .35 + .25;
+            Math.random() * 0.35 + 0.25;
+
 
         bubble.style.setProperty(
             "--bubble-opacity",
             opacity
         );
 
+
         bubble.style.setProperty(
             "--bubble-x1",
-            (Math.random() * 80 - 40) + "px"
+            (
+                Math.random() * 80 - 40
+            ) + "px"
         );
+
 
         bubble.style.setProperty(
             "--bubble-x2",
-            (Math.random() * 120 - 60) + "px"
+            (
+                Math.random() * 120 - 60
+            ) + "px"
         );
+
 
         bubble.style.setProperty(
             "--bubble-x3",
-            (Math.random() * 160 - 80) + "px"
+            (
+                Math.random() * 160 - 80
+            ) + "px"
         );
+
 
         bubble.style.setProperty(
             "--bubble-x4",
-            (Math.random() * 200 - 100) + "px"
+            (
+                Math.random() * 200 - 100
+            ) + "px"
         );
 
-        container.appendChild(bubble);
+
+        container.appendChild(
+            bubble
+        );
+
 
         bubble.addEventListener(
             "animationend",
             function () {
+
                 bubble.remove();
+
             }
         );
+
     }
+
 
     const cantidadInicial =
         window.innerWidth <= 700
             ? 8
             : 14;
 
+
     for (
         let i = 0;
         i < cantidadInicial;
         i++
     ) {
+
         setTimeout(
             crearBurbuja,
             i * 300
         );
+
     }
+
 
     setInterval(
         crearBurbuja,
@@ -845,6 +995,7 @@ function crearBurbujas() {
             ? 1200
             : 850
     );
+
 }
 
 
@@ -853,7 +1004,10 @@ function crearBurbujas() {
 // =====================================================
 
 const botonBurbujas =
-    document.getElementById("openInvitation");
+    document.getElementById(
+        "openInvitation"
+    );
+
 
 if (botonBurbujas) {
 
