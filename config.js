@@ -155,9 +155,9 @@ Su cariño, compañía y buenos deseos significan muchísimo para nosotros. 💜
 
         foto4: "foto5.jpeg",
 
-        foto5: "foto6.jpeg",
+        foto5: "foto6.jpg",
 
-        final: "foto7.jpeg"
+        final: "foto7.jpg"
 
     },
 
