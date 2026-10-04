@@ -104,30 +104,17 @@ const BODA = {
     extras: {
 
         dressCode:
-            "Elegante ✨. El blanco y el negro están reservados para los novios. 💜",
+    "Sport elegante ✨\n\n" +
+    "(No olvides tu traje de baño) 💦",
 
-        regalos:
-            "Tu presencia es nuestro mejor regalo. 💜\n\n" +
+regalos:
+    "Tu presencia es nuestro mejor y más importante regalo ❤️.\n\n" +
 
-            "Lo más importante para nosotros es poder compartir este día tan especial junto a las personas que queremos y que nos acompañen a comenzar esta nueva etapa de nuestras vidas.\n\n" +
+    "Pero si desean hacernos un obsequio, lo pueden hacer a través de la CuentaRUT:\n\n" +
 
-            "Si además desean hacernos un obsequio, lo recibiremos con mucho cariño y gratitud.\n\n" +
+    "RUT: 20.267.033-4\n\n" +
 
-            "💜 Si prefieren realizar una transferencia:\n\n" +
-
-            "Laura Daniela Urrutia Maldonado\n" +
-            "RUT: 202670334\n" +
-            "Mercado Pago · Cuenta Vista\n" +
-            "N.º de cuenta: 1092911078\n" +
-            "laura.urrutia0207@gmail.com\n\n" +
-
-            "🎁 Si prefieren entregarlo personalmente:\n\n" +
-
-            "En la recepción encontrarán sobres y un baúl, donde podrán dejarnos su obsequio o unas palabras y buenos deseos para nosotros.\n\n" +
-
-            "Gracias por ser parte de este momento tan especial. 💜\n\n" +
-
-            "Su cariño, compañía y buenos deseos significan muchísimo para nosotros. ✨",
+    "Si prefieren entregarlo en efectivo, habrá un baúl para recibirlo. ✨",
 
         telefono:
             "+56 9 5300 9921"
