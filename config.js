@@ -83,7 +83,7 @@ const BODA = {
             "Queremos celebrar este momento rodeados de las personas que queremos y que han sido parte de nuestra historia.",
 
         frase:
-            "El amor no se mira, se siente, y aún más cuando está junto a ti.",
+            "Y ahora permanecen la fe, la esperansa y el amor, estos tres, pero el mayor de ellos es el amor. (1 corintios 13:13) ",
 
         confirmacion:
             "Nos encantaría contar contigo en este día tan especial.",
