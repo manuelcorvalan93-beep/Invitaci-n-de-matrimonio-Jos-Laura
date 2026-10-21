@@ -16,7 +16,7 @@ const BODA = {
 
     fechaCorta: "27 · 02 · 2027",
 
-    fechaEvento: "2027-02-27T12:00:00",
+    fechaEvento: "2027-02-27T12:30:00",
 
 
     // ==========================================
@@ -37,7 +37,7 @@ const BODA = {
 
         nombre: "Ceremonia",
 
-        hora: "12:00",
+        hora: "12:30",
 
         lugar: "Lugar de la ceremonia",
 
@@ -56,7 +56,7 @@ const BODA = {
 
         nombre: "Celebración",
 
-        hora: "13:30",
+        hora: "14:00",
 
         lugar: "Lugar de la celebración",
 
