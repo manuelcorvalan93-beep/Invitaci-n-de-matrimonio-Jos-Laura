@@ -41,9 +41,9 @@ const BODA = {
 
         lugar: "Lugar de la ceremonia",
 
-        direccion: "Dirección por confirmar",
+        direccion: "kilómetro 16 camino a coihueco, sector Talquipen S/n  parcela Isalon",
 
-        maps: ""
+        maps: "https://maps.app.goo.gl/WjcytqpnpyJaHBxt5"
 
     },
 
@@ -60,9 +60,9 @@ const BODA = {
 
         lugar: "Lugar de la celebración",
 
-        direccion: "Dirección por confirmar",
+        direccion: "kilómetro 16 camino a coihueco, sector Talquipen S/n  parcela Isalon",
 
-        maps: ""
+        maps: "https://maps.app.goo.gl/WjcytqpnpyJaHBxt5"
 
     },
 
